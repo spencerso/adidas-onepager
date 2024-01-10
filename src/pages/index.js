@@ -10,7 +10,7 @@ function HomePage() {
       <div className={cn(styles.sectionOne, styles.sectionContainer)}>
         <div className={styles.sectionOneLogo}>
           <img
-            src="/images/adidas-logo.png"
+            src="https://spencerso.github.io/adidas-onepager/images/adidas-logo.png"
             alt="Adidas Logo"
             className={styles.adidasLogo}
             height={'100%'}
@@ -39,7 +39,7 @@ function HomePage() {
         </div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
           <img
-            src="/images/profile-photo-sm.jpg"
+            src="https://spencerso.github.io/adidas-onepager/images/profile-photo-sm.jpg"
             alt="Profile Photo"
           />
           <div className={styles.sectionContentText}>Hey, My name is Spencer So. I am a student creative from the university of oregon, originally from san jose, ca. this is why impossible
@@ -66,7 +66,7 @@ means nothing.</div>
           <div className={styles.iconography}>
             <span>2018</span>
             <img
-              src="/images/sml-logos-collage.png"
+              src="https://spencerso.github.io/adidas-onepager/images/sml-logos-collage.png"
               alt="SomuchLove Logo Collage"
             />
             <span className={styles.iconographyLabelTwo}>Present</span>
@@ -89,7 +89,7 @@ means nothing.</div>
         </div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
           <img
-            src="/images/sml-products.jpg"
+            src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
             alt="SomuchLove Product Collage"
           />
           <div className={styles.sectionContentText}>somuchlove will become a multi-media company made by artists for artists.</div>
@@ -112,12 +112,12 @@ means nothing.</div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
           <div className={styles.sectionContentText}>Impossible is nothing means finding myself during sophomore year by joining the Warsaw Sports Business Club.</div>
           <img
-            src="/images/warsaw-activities.jpg"
+            src="https://spencerso.github.io/adidas-onepager/images/warsaw-activities.jpg"
             alt="Warsaw Business Club Adidas Visit"
           />
           <div className={cn(styles.sectionContentText, styles.sectionContentTextDivider)}>Visiting the Adidas campus</div>
           <img
-            src="/images/warsaw-events.jpg"
+            src="https://spencerso.github.io/adidas-onepager/images/warsaw-events.jpg"
             alt="Warsaw Business Club Events"
           />
           <div className={styles.sectionContentText}>and Running the 2nd annual Warsaw Donut Relay</div>
@@ -144,19 +144,19 @@ means nothing.</div>
             <Carousel className={styles.carousel}>
               <div className={styles.carouselElement}>
                 <img
-                  src="/images/sml-products.jpg"
+                  src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
                   alt="SomuchLove Product Collage"
                 />
               </div>
               <div className={styles.carouselElement}>
                 <img
-                  src="/images/sml-products.jpg"
+                  src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
                   alt="SomuchLove Product Collage"
                 />
               </div>
               <div className={styles.carouselElement}>
                 <img
-                  src="/images/sml-products.jpg"
+                  src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
                   alt="SomuchLove Product Collage"
                 />
               </div>
@@ -190,7 +190,7 @@ means nothing.</div>
       <div className={cn(styles.sectionEight, styles.sectionContainer)}>
         <div className={styles.sectionEightLogo}>
           <img
-            src="/images/adidas-logo.png"
+            src="https://spencerso.github.io/adidas-onepager/images/adidas-logo.png"
             alt="Adidas Logo"
             className={styles.adidasLogo}
             height={'100%'}

@@ -32,7 +32,7 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')]
   },
-  poweredByHeader: false,
+  poweredByHeader: false
 }
 
 module.exports = nextConfig
