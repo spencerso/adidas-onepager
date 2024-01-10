@@ -31,7 +31,7 @@
   }
 
   &.carouselPaginationActive {
-    background-color: $nio-blue;
+    background-color: $neo-blue;
     width: fixedDis(50);
 
     @include desktop {
@@ -47,7 +47,7 @@
       width: 100%;
 
       .progressBarIndicator {
-        background-color: $nio-blue;
+        background-color: $neo-blue;
         display: block;
         height: 100%;
       }
