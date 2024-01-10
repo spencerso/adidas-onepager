@@ -35,6 +35,10 @@ const PaginationItem = React.memo(({ active, onPaginateClick, id, progressBar })
   )
 })
 
+// Adding displayName to the functional component
+CarouselArrow.displayName = 'CarouselArrow'
+PaginationItem.displayName = 'PaginationItem'
+
 const Carousel = (props) => {
   const {
     paginationEnabled = true,
