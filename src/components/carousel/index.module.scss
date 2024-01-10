@@ -1,0 +1,95 @@
+@import '~styles/common/mixin';
+
+.carouselControls {
+  display: flex;
+  justify-content: center;
+  margin: calcMb(30) 0 calcMb(40);
+
+  @include desktop {
+    margin: calcPc(50) 0 calcPc(80);
+  }
+}
+
+.carouselPagination {
+  display: flex;
+  justify-content: center;
+  margin: 0 calcMb(60);
+
+  @include desktop {
+    margin: 0 calcPc(60);
+  }
+}
+
+.carouselPaginationItem {
+  background-color: $color-93;
+  height: fixedDis(1);
+  margin: 0 fixedDis(2);
+  width: fixedDis(20);
+
+  @include desktop {
+    margin: 0;
+  }
+
+  &.carouselPaginationActive {
+    background-color: $nio-blue;
+    width: fixedDis(50);
+
+    @include desktop {
+      width: fixedDis(120);
+    }
+  }
+
+  &.progressBar {
+    .progressBarWrapper {
+      background-color: $color-93;
+      display: block;
+      height: 100%;
+      width: 100%;
+
+      .progressBarIndicator {
+        background-color: $nio-blue;
+        display: block;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.carouselArrowWrapper {
+  cursor: pointer;
+  height: fixedDis(20);
+}
+
+.carouselArrow {
+  position: relative;
+  background-color: $color-93;
+  height: 1px;
+  width: calcMb(26);
+
+  @include desktop {
+    width: calcPc(26);
+  }
+
+  &.carouselArrowNext {
+    transform: rotate(180deg);
+  }
+
+  i {
+    position: absolute;
+    height: 1px;
+    width: calcMb(5);
+    left: 0;
+    top: 0;
+    transform: rotate(40deg);
+    transform-origin: 0 0;
+    background-color: $color-93;
+
+    @include desktop {
+      width: calcPc(8);
+    }
+
+    &:last-child {
+      transform: rotate(-40deg);
+    }
+  }
+}

@@ -1,0 +1,437 @@
+@import '~styles/common/mixin';
+
+.onePager {
+  .sectionContainer {
+    align-content: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    position: relative;
+    width: 100vw;
+
+    .sectionSideBar {
+      height: 200px;
+      margin-bottom: 50px;
+      position: relative;
+      width: 100vw;
+
+      @include desktop {
+        height: 100vh;
+        margin-bottom: 0;
+        margin-left: 7%;
+        width: 300px;
+      }
+
+      .navigation {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: 1;
+
+        ul {
+          list-style: none;
+        }
+      }
+
+      .sectionSideBarBase {
+        height: 85%;
+
+        @include desktop {
+          height: 100vh;
+          width: 85%;
+        }
+      }
+
+      .sectionSideBarOverlay {
+        height: 85%;
+        left: 0;
+        opacity: 0.5;
+        position: absolute;
+        top: 11%;
+        width: 100%;
+
+        @include desktop {
+          height: 100vh;
+          left: 5%;
+          top: 0;
+          width: 85%;
+        }
+      }
+    }
+
+    &.sectionOne {
+      .sectionOneLogo {
+        height: fit-content;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+
+        p {
+          font-size: 26px;
+          text-align: center;
+        }
+      }
+
+      .sectionOneBgGray {
+        background-color: #999;
+      }
+
+      .sectionOneBgGreen {
+        background-color: aquamarine;
+      }
+    }
+
+    &.sectionTwo {
+      background-color: $black;
+
+      .sectionSideBar {
+        order: 2;
+
+        @include desktop {
+          order: 1;
+        }
+
+        .sectionSideBarBase {
+          background-color: #999;
+        }
+
+        .sectionSideBarOverlay {
+          background-color: #E4CCFF;
+        }
+      }
+
+      .sectionContent {
+        margin: 0 auto;
+        padding: 30px 0;
+        width: 90%;
+
+        @include desktop {
+          align-content: center;
+          display: flex;
+          flex: 0 0 55%;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          order: 2;
+        }
+    
+        img {
+          display: block;
+          margin: 0 auto;
+          width: 90%;
+
+          @include desktop {
+            height: 590px;
+            margin: 0;
+            width: 430px;
+          }
+        }
+
+        .sectionContentText {
+          color: $white;
+          font-size: 18px;
+          margin: 0 auto;
+          padding: 30px 0;
+          width: 90%;
+          
+          @include desktop {
+            align-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 22px;
+            justify-content: center;
+            margin: 0;
+            width: 30%;
+          }
+        }
+      }
+    }
+
+    &.sectionThree {
+      align-content: space-between;
+      background-color: pink;
+
+      .sectionSideBar {
+        order: 2;
+
+        .sectionSideBarBase {
+          background-color: #757575;
+        }
+
+        .sectionSideBarOverlay {
+          background-color: #F5B7FF;
+        }
+      }
+
+      .sectionContent {
+        margin: 100px auto 0;
+        width: 90%;
+
+        @include desktop {
+          order: 2;
+          width: 60%;
+        }
+
+        p,
+        img {
+          display: block;
+          width: 100%;
+        }
+
+        .iconography {
+          .iconographyLabelTwo {
+            display: block;
+            padding-top: 5px;
+            text-align: right;
+            width: 100%;
+          }
+        }
+
+        .sectionContentText {
+          font-size: 18px;
+          margin-bottom: 60px;
+        }
+      }
+    }
+
+    &.sectionFour {
+      align-content: space-between;
+      background-color: #E6E6E6;
+
+      .sectionSideBar {
+        order: 2;
+
+        .sectionSideBarBase {
+          background-color: #757575;
+        }
+
+        .sectionSideBarOverlay {
+          background-color: #F5B7FF;
+        }
+      }
+
+      .sectionContent {
+        margin: 0 auto;
+        padding: 140px 0 0;
+        width: 90%;
+
+        @include desktop {
+          order: 2;
+          width: 60%;
+        }
+
+        img {
+          display: block;
+          margin: 0 auto;
+          width: 100%;
+        }
+
+        .sectionContentText {
+          font-size: 18px;
+          margin-top: 60px;
+        }
+      }
+    }
+
+    &.sectionFive {
+      align-content: space-between;
+      background-color: #E6E6E6;
+
+      .sectionSideBar {
+        order: 2;
+
+        .sectionSideBarBase {
+          background-color: #757575;
+        }
+
+        .sectionSideBarOverlay {
+          background-color: #154733;
+        }
+      }
+
+      .sectionContent {
+        margin: 0 auto;
+        padding: 30% 0 0;
+        width: 90%;
+
+        @include desktop {
+          align-content: center;
+          display: flex;
+          flex-wrap: wrap;
+          height: 100%;
+          order: 2;
+          padding: 0;
+          width: 60%;
+        }
+
+        img {
+          display: block;
+          margin: 20px auto 0;
+          width: 100%;
+        }
+
+        .sectionContentText {
+          font-size: 18px;
+          margin-top: 5px;
+
+          &.sectionContentTextDivider {
+            margin-bottom: 50px;
+          }
+        }
+      }
+    }
+
+    &.sectionSix {
+      align-content: space-between;
+      background-color: #E6E6E6;
+
+      .sectionSideBar {
+        order: 2;
+
+        .sectionSideBarBase {
+          background-color: #757575;
+        }
+
+        .sectionSideBarOverlay {
+          background-color: #FEE123;
+        }
+      }
+
+      .sectionContent {
+        margin: 0 auto;
+        padding: 15% 0 0;
+        width: 90%;
+
+        @include desktop {
+          align-content: center;
+          display: flex;
+          flex-wrap: wrap;
+          height: 100%;
+          order: 2;
+          padding: 0;
+          width: 60%;
+        }
+
+        img {
+          display: block;
+          margin: 20px auto 0;
+          width: 100%;
+        }
+
+        .sectionContentText {
+          font-size: 18px;
+          margin-top: 5px;
+
+          &.sectionContentTextDivider {
+            margin-bottom: 50px;
+          }
+        }
+      }
+    }
+
+    &.sectionSeven {
+      align-content: space-between;
+      background-color: #E6E6E6;
+
+      .sectionSideBar {
+        order: 2;
+
+        .sectionSideBarBase {
+          background-color: #757575;
+        }
+
+        .sectionSideBarOverlay {
+          background-color: #FEE123;
+        }
+      }
+
+      .sectionContent {
+        margin: 0 auto;
+        padding: 30% 0 0;
+        width: 90%;
+
+        @include desktop {
+          align-content: center;
+          display: flex;
+          flex-wrap: wrap;
+          height: 100%;
+          order: 2;
+          padding: 0;
+          width: 60%;
+        }
+
+        img {
+          display: block;
+          margin: 20px auto 0;
+          width: 100%;
+        }
+
+        .sectionContentText {
+          font-size: 18px;
+          margin-top: 5px;
+
+          &.sectionContentTextDivider {
+            margin-bottom: 50px;
+          }
+        }
+      }
+    }
+
+    &.sectionEight {
+      align-content: flex-end;
+      background-color: #E6E6E6;
+
+      .sectionSideBar {
+        .sectionSideBarBase {
+          background-color: #757575;
+        }
+
+        .sectionSideBarOverlay {
+          background-color: aquamarine;
+        }
+      }
+
+      .sectionEightLogo {
+        height: fit-content;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+
+        p {
+          font-size: 26px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .carousel {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+
+    :global(.slick-track) {
+      display: flex;
+
+      .carouselElement {
+        height: 400px;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          margin: 0 !important;
+          width: 100%;
+
+          @include desktop {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

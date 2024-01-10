@@ -1,0 +1,287 @@
+@use 'sass:math';
+@import './variable';
+/*------------------
+     Mixin
+-------------------*/
+
+// Clearfix
+// -------------------
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+//
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: ' '; // 1
+    display: table; // 2
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// border-box
+@mixin border-box {
+  box-sizing: border-box;
+
+  * {
+    box-sizing: inherit;
+  }
+}
+
+// adapt to mobile
+//
+// -------------------
+
+@charset 'UTF-8';
+
+// use this function to calculate your distance
+
+// use rem
+@function px2remMb($px) {
+  @return math.div($px, $baseRem) + rem;
+}
+
+@function px2remPc($px) {
+  @return math.div($px, math.div($desktop, 375px) * $baseRem) + rem;
+}
+
+// use vw
+// adaption distance
+@function calcPc($dis) {
+  @return math.div($dis, 1440) * 100 + vw;
+}
+@function calcPcVh($dis) {
+  @return math.div($dis, 960) * 100 + vh;
+}
+
+@function calcMb($dis) {
+  @return math.div($dis, 375) * 100 + vw;
+}
+// fixed distance
+@function fixedDis($dis, $unit: px) {
+  @return $dis + $unit;
+}
+
+// 处理多行文本溢出的自动省略，仅使用移动端
+@mixin ellipsis($col: 1) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $col;
+  overflow: hidden;
+}
+
+@mixin font-base-content {
+  font-size: $font-size-base-fixed;
+  line-height: 23px;
+}
+
+@mixin font-article-content {
+  font-size: $font-size-larger;
+  line-height: 30px;
+}
+
+@mixin font-sub-title {
+  color: $font-color-dark;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-tip {
+  color: $font-color-dark;
+  font-size: $font-size-smaller;
+  line-height: 17px;
+}
+
+@mixin border-top {
+  border-top: 1px solid $border-color-fixed;
+}
+
+@mixin rgba-background($hexcolor, $opacity) {
+  background-color: $hexcolor;
+  background-color: rgba($hexcolor, $opacity);
+}
+
+// Responsiveness https://github.com/jgthms/bulma/blob/master/sass/utilities/mixins.sass#L83-L141
+
+@mixin from($device) {
+  @media (min-width: $device) {
+    @content;
+  }
+}
+
+@mixin until($device) {
+  @media screen and (max-width: $device - 1px) {
+    @content;
+  }
+}
+
+@mixin small-screen-mobile {
+  @media screen and (max-width: $small-screen-mobile-width) and (max-height: $small-screen-mobile-height) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: $tablet - 1px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet), print {
+    @content;
+  }
+}
+
+@mixin smallTablet {
+  @media screen and (min-width: $smallTablet), print {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media screen and (min-width: $tablet) and (max-width: $desktop - 1px) {
+    @content;
+  }
+}
+
+@mixin touch {
+  @media screen and (max-width: $desktop - 1px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin frame-width-desktop($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @if $widescreen-enabled {
+    @media screen and (min-width: $desktop) and (max-width: $widescreen - 1px) {
+      @content;
+    }
+  }
+}
+
+@mixin until-widescreen {
+  @if $widescreen-enabled {
+    @media screen and (max-width: $widescreen - 1px) {
+      @content;
+    }
+  }
+}
+
+@mixin widescreen {
+  @if $widescreen-enabled {
+    @media screen and (min-width: $widescreen) {
+      @content;
+    }
+  }
+}
+
+@mixin widescreen-only {
+  @if $widescreen-enabled and $fullhd-enabled {
+    @media screen and (min-width: $widescreen) and (max-width: $fullhd - 1px) {
+      @content;
+    }
+  }
+}
+
+@mixin until-fullhd {
+  @if $fullhd-enabled {
+    @media screen and (max-width: $fullhd - 1px) {
+      @content;
+    }
+  }
+}
+
+@mixin fullhd {
+  @if $fullhd-enabled {
+    @media screen and (min-width: $fullhd) {
+      @content;
+    }
+  }
+}
+
+@mixin fullwide {
+  @if $fullwide-enabled {
+    @media screen and (min-width: $fullwide) {
+      @content;
+    }
+  }
+}
+
+@mixin ultrawide {
+  @if $ultrawide-enabled {
+    @media screen and (min-width: $ultrawide) {
+      @content;
+    }
+  }
+}
+
+@mixin centerer($horizontal: true, $vertical: true) {
+  position: absolute;
+
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+@mixin international-only {
+  :global(.global-site) & {
+    @content;
+  }
+}
+
+@mixin china-only {
+  :global(.zh-CN) & {
+    @content;
+  }
+}
+
+@function calcGridHeight($col, $size) {
+  $height: 100%;
+
+  @if $size == 'sm' {
+    $height: calc((343px - ($sm-gutter * (12 / $col - 1))) / (12 / $col));
+  }
+
+  @if $size == 'md' {
+    $height: calc((640px - ($sm-gutter * (12 / $col - 1))) / (12 / $col));
+  }
+
+  @if $size == 'lg' {
+    $height: calc((1200px - ($sm-gutter * (12 / $col - 1))) / (12 / $col));
+  }
+
+  @if $size == 'xl' {
+    $height: calc((1280px - ($lg-gutter * (12 / $col - 1))) / (12 / $col));
+  }
+  @return $height;
+}
