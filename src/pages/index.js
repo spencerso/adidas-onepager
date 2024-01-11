@@ -1,29 +1,63 @@
-import gsap from 'gsap'
+import { useEffect, useRef } from 'react'
+import { gsap } from "gsap/dist/gsap"
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { initAnimations } from '~scripts/animations'
 import Carousel from '~components/carousel'
 import styles from '~styles/index.module.scss'
 import cn from 'classnames'
 
 function HomePage() {
-  const { ScrollTrigger } = require=('gsap/ScrollTrigger')
+  // const { ScrollTrigger } = require=('gsap/ScrollTrigger')
+  const warsawAssets = []
+  const donutRelayAssets = []
+  const wrapperRef = useRef()
+  const refObjs = []
+
+  for (var i = 0; i < 19; i++) {
+    let num = i
+    if (i < 10) {
+      num = `0${i}`
+
+      if (i < 9) {
+        donutRelayAssets.push(`donut-relay-${num}`)
+      }
+    }
+    warsawAssets.push(`adidas-hq-${num}`)
+  }
+
+  console.log('warsawAssets: ', warsawAssets)
+  console.log('donutRelayAssets: ', donutRelayAssets)
+
+  useEffect(() => {
+    refObjs.push(wrapperRef)
+    gsap.registerPlugin(ScrollTrigger)
+    // ScrollTrigger.normalizeScroll(isIOS() ? false : true)
+    ScrollTrigger.config({
+      limitCallbacks: true,
+      ignoreMobileResize: true,
+    })
+    initAnimations('index', refObjs)
+  }, [])
+
   return (
-    <div className={styles.onePager}>
-      <div className={cn(styles.sectionOne, styles.sectionContainer)}>
-        <div className={styles.sectionOneLogo}>
+    <div className={styles.onePager} ref={wrapperRef}>
+      <div className={cn(styles.sectionOne, styles.sectionContainer, 'sectionOne')}>
+        <div className={cn(styles.sectionOneLogo, 'sectionOneLogo')}>
           <img
             src="https://spencerso.github.io/adidas-onepager/images/adidas-logo.png"
             alt="Adidas Logo"
-            className={styles.adidasLogo}
+            className={cn(styles.adidasLogo, 'adidasLogo')}
             height={'100%'}
             width={'100%'}
           />
-          <p>Impossible Means Nothing</p>
+          <p><span className={'tagline-impossible'}>Impossible</span> <span className={'tagline-is'}>Is</span> <span className={'tagline-nothing'}>Nothing</span></p>
         </div>
-        <div className={cn(styles.sectionSideBar)}>
+        <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
           <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
           <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
         </div>
       </div>
-      <div className={cn(styles.sectionTwo, styles.sectionContainer)}>
+      <div className={cn(styles.sectionTwo, styles.sectionContainer, 'sectionTwo')}>
         <div className={styles.sectionSideBar}>
           <div className={styles.navigation}>
             <ul>
@@ -48,7 +82,7 @@ function HomePage() {
 means nothing.</div>
         </div>
       </div>
-      <div className={cn(styles.sectionThree, styles.sectionContainer)}>
+      <div className={cn(styles.sectionThree, styles.sectionContainer, 'sectionThree')}>
         <div className={styles.sectionSideBar}>
           <div className={styles.navigation}>
             <ul>
@@ -75,7 +109,7 @@ means nothing.</div>
           </div>
         </div>
       </div>
-      <div className={cn(styles.sectionFour, styles.sectionContainer)}>
+      <div className={cn(styles.sectionFour, styles.sectionContainer, 'sectionFour')}>
         <div className={styles.sectionSideBar}>
           <div className={styles.navigation}>
             <ul>
@@ -97,7 +131,7 @@ means nothing.</div>
           <div className={styles.sectionContentText}>somuchlove will become a multi-media company made by artists for artists.</div>
         </div>
       </div>
-      <div className={cn(styles.sectionFive, styles.sectionContainer)}>
+      <div className={cn(styles.sectionFive, styles.sectionContainer, 'sectionFive')}>
         <div className={styles.sectionSideBar}>
           <div className={styles.navigation}>
             <ul>
@@ -114,18 +148,44 @@ means nothing.</div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
           <div className={styles.sectionContentText}>Impossible is nothing means finding myself during sophomore year by joining the Warsaw Sports Business Club.</div>
           <img
+            className={styles.warsawAssetDefault}
             src="https://spencerso.github.io/adidas-onepager/images/warsaw-activities.jpg"
             alt="Warsaw Business Club Adidas Visit"
           />
+          <div className={styles.warsawAssets}>
+            {warsawAssets.map((asset, index) => {
+              return (
+                <div key={index} className={styles.warsawAsset}>
+                  <img
+                    src={`https://spencerso.github.io/adidas-onepager/images/adidas-hq/${asset}.jpg`}
+                    alt="Warsaw Business Club Adidas Visit"
+                  />
+                </div>
+              )
+            })}
+          </div>
           <div className={cn(styles.sectionContentText, styles.sectionContentTextDivider)}>Visiting the Adidas campus</div>
           <img
+            className={styles.warsawAssetDefault}
             src="https://spencerso.github.io/adidas-onepager/images/warsaw-events.jpg"
             alt="Warsaw Business Club Events"
           />
+          <div className={styles.warsawAssets}>
+            {donutRelayAssets.map((asset, index) => {
+              return (
+                <div key={index} className={styles.warsawAsset}>
+                  <img
+                    src={`https://spencerso.github.io/adidas-onepager/images/donut-relay/${asset}.jpg`}
+                    alt="Warsaw Business Club Donut Relay"
+                  />
+                </div>
+              )
+            })}
+          </div>
           <div className={styles.sectionContentText}>and Running the 2nd annual Warsaw Donut Relay</div>
         </div>
       </div>
-      <div className={cn(styles.sectionSix, styles.sectionContainer)}>
+      <div className={cn(styles.sectionSix, styles.sectionContainer, 'sectionSix')}>
         <div className={styles.sectionSideBar}>
           <div className={styles.navigation}>
             <ul>
@@ -165,7 +225,7 @@ means nothing.</div>
             </Carousel>
         </div>
       </div>
-      <div className={cn(styles.sectionSeven, styles.sectionContainer)}>
+      <div className={cn(styles.sectionSeven, styles.sectionContainer, 'sectionSeven')}>
         <div className={styles.sectionSideBar}>
           <div className={styles.navigation}>
             <ul>
@@ -189,7 +249,7 @@ means nothing.</div>
           </div>
         </div>
       </div>
-      <div className={cn(styles.sectionEight, styles.sectionContainer)}>
+      <div className={cn(styles.sectionEight, styles.sectionContainer, 'sectionEight')}>
         <div className={styles.sectionEightLogo}>
           <img
             src="https://spencerso.github.io/adidas-onepager/images/adidas-logo.png"
