@@ -38,10 +38,12 @@ function HomePage() {
           <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
         </div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-          <img
-            src="https://spencerso.github.io/adidas-onepager/images/profile-photo-sm.jpg"
-            alt="Profile Photo"
-          />
+          <div className={styles.imgWrapper}>
+            <img
+              src="https://spencerso.github.io/adidas-onepager/images/profile-photo-sm.jpg"
+              alt="Profile Photo"
+            />
+          </div>
           <div className={styles.sectionContentText}>Hey, My name is Spencer So. I am a student creative from the university of oregon, originally from san jose, ca. this is why impossible
 means nothing.</div>
         </div>
@@ -62,7 +64,7 @@ means nothing.</div>
         </div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
           <div className={styles.sectionContentText}>Impossible is nothing means I can start my own clothing brand in high school. somuchlove is something I built as a way to stand up for social injustices I have experienced from being an Asian American during the Stop Asian Hate movement to my friends transition in middle school.</div>
-          <p>Iconography</p>
+          <p className={styles.iconographyTitle}>Iconography</p>
           <div className={styles.iconography}>
             <span>2018</span>
             <img

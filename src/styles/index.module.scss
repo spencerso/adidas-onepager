@@ -3,6 +3,7 @@
 .onePager {
   .sectionContainer {
     align-content: flex-end;
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     height: 100vh;
@@ -10,8 +11,8 @@
     width: 100vw;
 
     .sectionSideBar {
-      height: 200px;
-      margin-bottom: 50px;
+      height: 170px;
+      margin-bottom: 0;
       position: relative;
       width: 100vw;
 
@@ -64,9 +65,17 @@
         height: fit-content;
         left: 50%;
         position: absolute;
-        top: 50%;
+        top: 40%;
         transform: translate(-50%, -50%);
         width: 300px;
+
+        @include smallTablet {
+          top: 50%;
+        }
+
+        img {
+          max-height: 188px;
+        }
 
         p {
           font-size: 26px;
@@ -103,28 +112,47 @@
       }
 
       .sectionContent {
+        height: 71%;
         margin: 0 auto;
-        padding: 30px 0;
+        padding: 30px 0 0;
         width: 90%;
 
         @include desktop {
           align-content: center;
           display: flex;
           flex: 0 0 55%;
+          flex-wrap: nowrap;
           flex-wrap: wrap;
+          height: 96%;
           justify-content: space-between;
           order: 2;
         }
     
-        img {
+        .imgWrapper {
           display: block;
+          height: 64%;
           margin: 0 auto;
+          overflow: hidden;
           width: 90%;
 
           @include desktop {
-            height: 590px;
-            margin: 0;
-            width: 430px;
+            height: fit-content;
+            width: fit-content;
+          }
+
+          img {
+            border: 15px solid white;
+            border-radius: 30px;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+
+            @include desktop {
+              height: 590px;
+              margin: 0;
+              width: 430px;
+            }
           }
         }
 
@@ -165,10 +193,16 @@
       }
 
       .sectionContent {
-        margin: 100px auto 0;
+        align-content: space-evenly;
+        display: flex;
+        flex-wrap: wrap;
+        height: 74%;
+        margin: 0 auto;
         width: 90%;
 
         @include desktop {
+          align-content: center;
+          height: 100%;
           order: 2;
           width: 60%;
         }
@@ -177,6 +211,14 @@
         img {
           display: block;
           width: 100%;
+        }
+
+        .iconographyTitle {
+          font-size: 20px;
+
+          @include desktop {
+            font-size: 24px;
+          }
         }
 
         .iconography {
@@ -190,7 +232,11 @@
 
         .sectionContentText {
           font-size: 18px;
-          margin-bottom: 60px;
+          margin-bottom: 0;
+
+          @include desktop {
+            font-size: 22px;
+          }
         }
       }
     }
@@ -230,6 +276,11 @@
         .sectionContentText {
           font-size: 18px;
           margin-top: 60px;
+
+          @include desktop {
+            font-size: 22px;
+            margin-top: 40px;
+          }
         }
       }
     }
@@ -251,8 +302,11 @@
       }
 
       .sectionContent {
+        align-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        height: 74%;
         margin: 0 auto;
-        padding: 30% 0 0;
         width: 90%;
 
         @include desktop {
@@ -274,6 +328,10 @@
         .sectionContentText {
           font-size: 18px;
           margin-top: 5px;
+
+          @include desktop {
+            font-size: 22px;
+          }
 
           &.sectionContentTextDivider {
             margin-bottom: 50px;
@@ -299,8 +357,11 @@
       }
 
       .sectionContent {
+        align-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        height: 74%;
         margin: 0 auto;
-        padding: 15% 0 0;
         width: 90%;
 
         @include desktop {
@@ -322,6 +383,16 @@
         .sectionContentText {
           font-size: 18px;
           margin-top: 5px;
+
+          @include desktop {
+            font-size: 22px;
+          }
+
+          a br {
+            @include desktop {
+              display: none;
+            }
+          }
 
           &.sectionContentTextDivider {
             margin-bottom: 50px;
@@ -347,8 +418,11 @@
       }
 
       .sectionContent {
+        align-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        height: 74%;
         margin: 0 auto;
-        padding: 30% 0 0;
         width: 90%;
 
         @include desktop {
@@ -370,6 +444,10 @@
         .sectionContentText {
           font-size: 18px;
           margin-top: 5px;
+
+          @include desktop {
+            font-size: 22px;
+          }
 
           &.sectionContentTextDivider {
             margin-bottom: 50px;
@@ -396,9 +474,17 @@
         height: fit-content;
         left: 50%;
         position: absolute;
-        top: 50%;
+        top: 40%;
         transform: translate(-50%, -50%);
         width: 300px;
+
+        @include smallTablet {
+          top: 50%;
+        }
+
+        img {
+          max-height: 188px;
+        }
 
         p {
           font-size: 26px;
@@ -417,8 +503,12 @@
       display: flex;
 
       .carouselElement {
-        height: 400px;
+        height: 250px;
         overflow: hidden;
+
+        @include desktop {
+          height: 550px;
+        }
 
         img {
           height: 100%;

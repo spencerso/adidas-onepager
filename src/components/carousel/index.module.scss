@@ -3,10 +3,11 @@
 .carouselControls {
   display: flex;
   justify-content: center;
-  margin: calcMb(30) 0 calcMb(40);
+  margin: 20px auto;
+  width: 100%;
 
   @include desktop {
-    margin: calcPc(50) 0 calcPc(80);
+    margin: calcPc(50) 0 0;
   }
 }
 
