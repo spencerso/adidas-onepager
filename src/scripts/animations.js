@@ -27,7 +27,7 @@ export function onePagerAnimations(refs) {
   gsap.set(sectionOne.querySelector('.sectionOneLogo .tagline-impossible'), { display: 'inline-block', y: 20, opacity: 0 })
   gsap.set(sectionOne.querySelector('.sectionOneLogo .tagline-is'), { display: 'inline-block', y: 20, opacity: 0 })
   gsap.set(sectionOne.querySelector('.sectionOneLogo .tagline-nothing'), { display: 'inline-block', y: 20, opacity: 0 })
-  gsap.set(sectionOne.querySelector('.sectionSideBar'), isMobile ? { width: 0 } : { h: 0 })
+  gsap.set(sectionOne.querySelector('.sectionSideBar'), isMobile ? { width: 0 } : { height: 0 })
   // gsap.set(refs.mainHeroWrapper.current, {
   //   position: 'fixed',
   //   top: 0,
@@ -41,7 +41,7 @@ export function onePagerAnimations(refs) {
     .to(sectionOne.querySelector('.sectionOneLogo .tagline-impossible'), { delay: 1, duration: 1, y: 0, opacity: 1 }, '-=1.2')
     .to(sectionOne.querySelector('.sectionOneLogo .tagline-is'), { delay: 1, duration: 1, y: 0, opacity: 1 }, '-=1.2')
     .to(sectionOne.querySelector('.sectionOneLogo .tagline-nothing'), { delay: 1, duration: 1, y: 0, opacity: 1 }, '-=1.2')
-    .to(sectionOne.querySelector('.sectionSideBar'), { duration: 1, width: '100%', opacity: 1 }, '-=0.8')
+    .to(sectionOne.querySelector('.sectionSideBar'), isMobile ? { duration: 1, width: '100%', opacity: 1 } : { duration: 1, height: '100%', opacity: 1 }, '-=0.8')
 
   // const sectionOneTl = gsap.timeline({
   //   scrollTrigger: {
