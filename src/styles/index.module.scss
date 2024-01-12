@@ -2,7 +2,7 @@
 
 .onePager {
   position: relative;
-  
+
   .sectionContainer {
     align-content: flex-end;
     box-sizing: border-box;
@@ -15,6 +15,7 @@
     .sectionSideBar {
       height: 170px;
       margin-bottom: 0;
+      overflow: hidden;
       position: relative;
       width: 100vw;
 
@@ -77,6 +78,16 @@
       }
     }
 
+    .separator {
+      order: 2;
+      height: 1px;
+      width: 100%;
+
+      @include desktop {
+        display: none;
+      }
+    }
+
     &.sectionOne {
       .sectionOneLogo {
         height: fit-content;
@@ -113,7 +124,7 @@
       background-color: $black;
 
       .sectionSideBar {
-        order: 2;
+        order: 3;
 
         @include desktop {
           order: 1;
@@ -146,6 +157,8 @@
         }
     
         .imgWrapper {
+          border: 8px solid white;
+          border-radius: 20px;
           display: block;
           height: 64%;
           margin: 0 auto;
@@ -158,8 +171,6 @@
           }
 
           img {
-            border: 15px solid white;
-            border-radius: 30px;
             height: 100%;
             object-fit: cover;
             object-position: center;
@@ -195,10 +206,14 @@
 
     &.sectionThree {
       align-content: space-between;
-      background-color: pink;
+      background-color: #ffc0cb;
 
       .sectionSideBar {
-        order: 2;
+        order: 3;
+
+        @include desktop {
+          order: 1;
+        }
 
         .sectionSideBarBase {
           background-color: #757575;
@@ -215,6 +230,7 @@
         flex-wrap: wrap;
         height: 74%;
         margin: 0 auto;
+        position: relative;
         width: 90%;
 
         @include desktop {

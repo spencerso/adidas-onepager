@@ -58,8 +58,8 @@ function HomePage() {
         </div>
       </div>
       <div className={cn(styles.sectionTwo, styles.sectionContainer, 'sectionTwo')}>
-        <div className={styles.sectionSideBar}>
-          <div className={styles.navigation}>
+        <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
+          <div className={cn(styles.navigation, 'navigation')}>
             <ul>
               <li><strong>About Me</strong></li>
               <li>somuchlove</li>
@@ -71,20 +71,20 @@ function HomePage() {
           <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
           <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
         </div>
+        <div className={styles.separator}>&nbsp;</div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-          <div className={styles.imgWrapper}>
+          <div className={cn(styles.imgWrapper, 'profilePhoto')}>
             <img
               src="https://spencerso.github.io/adidas-onepager/images/profile-photo-sm.jpg"
               alt="Profile Photo"
             />
           </div>
-          <div className={styles.sectionContentText}>Hey, My name is Spencer So. I am a student creative from the university of oregon, originally from san jose, ca. this is why impossible
-means nothing.</div>
+          <div className={cn(styles.sectionContentText, 'profileText')}>Hey, My name is Spencer So. I am a student creative from the university of oregon, originally from san jose, ca. this is why <strong>Impossible Is Nothing</strong>.</div>
         </div>
       </div>
       <div className={cn(styles.sectionThree, styles.sectionContainer, 'sectionThree')}>
-        <div className={styles.sectionSideBar}>
-          <div className={styles.navigation}>
+        <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
+          <div className={cn(styles.navigation, 'navigation')}>
             <ul>
               <li>About Me</li>
               <li><strong>somuchlove</strong></li>
@@ -96,16 +96,19 @@ means nothing.</div>
           <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
           <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
         </div>
+        <div className={styles.separator}>&nbsp;</div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-          <div className={styles.sectionContentText}>Impossible is nothing means I can start my own clothing brand in high school. somuchlove is something I built as a way to stand up for social injustices I have experienced from being an Asian American during the Stop Asian Hate movement to my friends transition in middle school.</div>
-          <p className={styles.iconographyTitle}>Iconography</p>
+          <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means I can start my own clothing brand in high school. somuchlove is something I built as a way to stand up for social injustices I have experienced from being an Asian American during the Stop Asian Hate movement to my friends transition in middle school.</div>
+          <p className={cn(styles.iconographyTitle, 'iconographyTitle')}>Iconography</p>
           <div className={styles.iconography}>
-            <span>2018</span>
-            <img
-              src="https://spencerso.github.io/adidas-onepager/images/sml-logos-collage.png"
-              alt="SomuchLove Logo Collage"
-            />
-            <span className={styles.iconographyLabelTwo}>Present</span>
+            <span className={'iconographyLabelOne'}>2018</span>
+            <div className={'iconCollage'}>
+              <img
+                src="https://spencerso.github.io/adidas-onepager/images/sml-logos-collage.png"
+                alt="SomuchLove Logo Collage"
+              />
+            </div>
+            <span className={cn(styles.iconographyLabelTwo, 'iconographyLabelTwo')}>Present</span>
           </div>
         </div>
       </div>
