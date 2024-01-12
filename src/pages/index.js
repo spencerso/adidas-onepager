@@ -10,6 +10,7 @@ function HomePage() {
   // const { ScrollTrigger } = require=('gsap/ScrollTrigger')
   const warsawAssets = []
   const donutRelayAssets = []
+  const smlProductAssets = []
   const wrapperRef = useRef()
   const refObjs = []
 
@@ -23,6 +24,10 @@ function HomePage() {
       }
     }
     warsawAssets.push(`adidas-hq-${num}`)
+  }
+
+  for (var i = 1; i < 10; i++) {
+    smlProductAssets.push(`sml-product-0${i}`)
   }
 
   console.log('warsawAssets: ', warsawAssets)
@@ -113,8 +118,8 @@ function HomePage() {
         </div>
       </div>
       <div className={cn(styles.sectionFour, styles.sectionContainer, 'sectionFour')}>
-        <div className={styles.sectionSideBar}>
-          <div className={styles.navigation}>
+        <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
+          <div className={cn(styles.navigation, 'navigation')}>
             <ul>
               <li>About Me</li>
               <li><strong>somuchlove</strong></li>
@@ -128,10 +133,23 @@ function HomePage() {
         </div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
           <img
+            className={cn(styles.backgroundImage, 'backgroundImage')}
             src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
             alt="SomuchLove Product Collage"
           />
-          <div className={styles.sectionContentText}>somuchlove will become a multi-media company made by artists for artists.</div>
+          <div className={cn(styles.productsCollage, 'productsCollage')}>
+            {smlProductAssets.map((asset, index) => {
+              return (
+                <div key={index} className={styles.productsCollageItem}>
+                  <img
+                    src={`/images/sml-products/${asset}.jpg`}
+                    alt="SomuchLove Product Collage"
+                  />
+                </div>
+              )
+            })}
+          </div>
+          <div className={cn(styles.sectionContentText, 'sectionContentText')}>somuchlove will become a multi-media company made by artists for artists.</div>
         </div>
       </div>
       <div className={cn(styles.sectionFive, styles.sectionContainer, 'sectionFive')}>

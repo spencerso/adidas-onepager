@@ -300,10 +300,126 @@
           width: 60%;
         }
 
-        img {
+        .backgroundImage {
           display: block;
           margin: 0 auto;
+          opacity: 0.6;
           width: 100%;
+        }
+
+        .productsCollage {
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+
+          .productsCollageItem {
+            border: 10px solid $white;
+            box-shadow: 2px 2px 3px $color-cc;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            
+            &:nth-child(even) {
+              height: 200px;
+              width: 80%;
+
+              @include desktop {
+                height: 380px;
+                width: 500px;
+              }
+            }
+
+            &:nth-child(odd) {
+              height: 280px;
+              width: 50%;
+
+              @include desktop {
+                height: 380px;
+                width: 500px;
+              }
+            }
+
+            &:first-child {
+              left: 32%;
+              top: 29%;
+
+              @include desktop {
+                top: 39%;
+              }
+            }
+            &:nth-child(2) {
+              left: 56%;
+              top: 30%;
+            }
+            &:nth-child(3) {
+              left: 66%;
+              top: 30%;
+
+              @include desktop {
+                left: 76%;
+                top: 36%;            
+              }
+            }
+            &:nth-child(4) {
+              left: 44%;
+              top: 38%;
+
+              @include desktop {
+                top: 48%;
+              }
+            }
+            &:nth-child(5) {
+              left: 33%;
+              top: 60%;
+
+              @include desktop {
+                left: 69%;
+                top: 69%;
+              }
+            }
+            &:nth-child(6) {
+              left: 57%;
+              top: 60%;
+
+              @include desktop {
+                left: 47%;
+                top: 75%;
+              }
+            }
+            &:nth-child(7) {
+              left: 62%;
+              top: 63%;
+
+              @include desktop {
+                left: 79%;
+                top: 83%;            
+              }
+            }
+
+            &:nth-child(8) {
+              @include desktop {
+                left: 35%;
+                top: 73%;
+              }
+            }
+
+            &:nth-child(9) {
+              @include desktop {
+                left: 55%;
+                top: 63%;
+              }
+            }
+
+            img {
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+              width: 100%;
+            }
+          }
         }
 
         .sectionContentText {

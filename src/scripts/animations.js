@@ -46,14 +46,17 @@ export function onePagerAnimations(refs) {
   gsap.set(sectionThree.querySelector('.iconographyLabelTwo'), { opacity: 0, y: 20 })
   gsap.set(sectionThree.querySelector('.iconCollage'), { width: 0, overflow: 'hidden' })
   gsap.set(sectionThree.querySelector('.iconCollage img'), isMobile ? { width: '372px' } : { width: '864px' })
+  // section 4 - staging
+  gsap.set(sectionFour, { position: 'absolute', top: 0, left: 0, backgroundColor: 'rgb(230, 230, 230, 0)' })
+  gsap.set(sectionFour.querySelector('.sectionSideBar .navigation'), { opacity: 0 })
+  gsap.set(sectionFour.querySelector('.sectionSideBar'), isMobile ? { width: 0 } : { height: 0 })
+  gsap.set(sectionFour.querySelector('.sectionContentText'), { zIndex: 20, position: 'absolute', y: 0, opacity: 0, width: '90%' })
+  gsap.set(sectionFour.querySelector('.backgroundImage'), { opacity: 0 })
 
-  // gsap.set(refs.mainHeroWrapper.current, {
-  //   position: 'fixed',
-  //   top: 0,
-  //   left: 0,
-  //   zIndex: 1,
-  // })
+  const productsCollageItems = sectionFour.querySelectorAll('.productsCollage div')
+  
 
+  // all sections animation timeline
   const sectionOneTl = gsap.timeline()
   sectionOneTl
     .to(sectionOne.querySelector('.sectionOneLogo .adidasLogo'), { delay: 1, duration: 1, y: 0, opacity: 1 })
@@ -66,7 +69,7 @@ export function onePagerAnimations(refs) {
     scrollTrigger: {
       trigger: wrapper,
       start: "top top",
-      end: window.innerHeight * 10,
+      end: window.innerHeight * 15,
       scrub: true,
       pin: true,
       markers: true,
@@ -95,26 +98,22 @@ export function onePagerAnimations(refs) {
     .to(sectionThree.querySelector('.iconographyTitle'), { duration: 0.5, opacity: 1, y: 0 }, '-=0.5')
     .to(sectionThree.querySelector('.iconographyLabelOne'), { duration: 0.5, opacity: 1, y: 0 }, '-=0.5')
     .to(sectionThree.querySelector('.iconographyLabelTwo'), { duration: 0.5, opacity: 1, y: 0 }, '-=0.5')
-  // const sectionOneTl = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: sectionOne,
-  //     start: "top top",
-  //     end: window.innerHeight * 2,
-  //     scrub: true,
-  //     pin: true,
-  //     markers: false,
-  //   }
-  // })
-  //   .to(sectionOne.querySelector('.sectionOneLogo'), { duration: 0.5, y: 0, opacity: 1 }, '+=0.5')
-  // gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: refs.rotatorAnimations.current,
-  //     start: "top top",
-  //     end: window.innerHeight * 22,
-  //     scrub: true,
-  //     pin: true,
-  //     markers: false,
-  //   },
-  // })
-  //   .to(refs.rotatorText.current, { duration: 0, display: 'block' })
+    // section three out / four in animations
+    .to(sectionThree, { duration: 1, opacity: 1 })
+    .to(sectionThree.querySelector('.sectionContentText'), { duration: 0.1, top: '-10%', opacity: 0 })
+    .to(sectionThree.querySelector('.iconographyTitle'), { duration: 0.1, x: '-100%', opacity: 0 }, '-=0.1')
+    .to(sectionThree.querySelector('.iconCollage'), { duration: 0.1, y: '100vh' }, '-=0.1')
+    .to(sectionThree.querySelector('.iconographyLabelOne'), { duration: 0.1, opacity: 0, y: 20 }, '-=0.1')
+    .to(sectionThree.querySelector('.iconographyLabelTwo'), { duration: 0.1, opacity: 0, y: 20 }, '-=0.1')
+    .to(sectionFour.querySelector('.sectionSideBar'), isMobile ? { duration: 0.5, width: '100%' } : { duration: 0.5, height: '100%' }, '-=0.2')
+    .to(sectionThree.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 1 })
+    .to(sectionFour.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 1 }, '-=0.5')
+    .to(sectionFour, { duration: 0.5, backgroundColor: 'rgb(230, 230, 230, 1)' }, '-=0.5')
+    .to(sectionFour.querySelector('.sectionContentText'), { duration: 1, y: isMobile ? '25vh' : '5vh', opacity: 1 })
+
+  productsCollageItems.forEach((item) => {
+    gsap.set(item, { opacity: 0, y: 50 })
+    sectionTwoTl.to(item, { duration: 0.5, opacity: 1, y: -100 })
+  })
+  
 }
