@@ -142,7 +142,7 @@ function HomePage() {
               return (
                 <div key={index} className={styles.productsCollageItem}>
                   <img
-                    src={`/images/sml-products/${asset}.jpg`}
+                    src={`https://spencerso.github.io/adidas-onepager/images/sml-products/${asset}.jpg`}
                     alt="SomuchLove Product Collage"
                   />
                 </div>
