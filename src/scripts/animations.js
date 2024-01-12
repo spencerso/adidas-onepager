@@ -106,7 +106,7 @@ export function onePagerAnimations(refs) {
     .to(sectionThree.querySelector('.iconographyLabelOne'), { duration: 0.3, opacity: 0, y: 20 }, '-=0.3')
     .to(sectionThree.querySelector('.iconographyLabelTwo'), { duration: 0.3, opacity: 0, y: 20 }, '-=0.3')
     .to(sectionFour.querySelector('.sectionSideBar'), isMobile ? { duration: 0.5, width: '100%' } : { duration: 0.5, height: '100%' }, '-=0.5')
-    .to(sectionThree.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 1 }, '-=0.5')
+    .to(sectionThree.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 1 })
     .to(sectionFour.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 1 }, '-=0.5')
     .to(sectionFour, { duration: 0.5, backgroundColor: 'rgb(230, 230, 230, 1)' }, '-=0.5')
     .to(sectionFour.querySelector('.sectionContentText'), { duration: 1, y: isMobile ? '25vh' : '5vh', opacity: 1 })
