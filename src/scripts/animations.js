@@ -7,7 +7,6 @@ export function initAnimations(page, refs) {
 }
 
 export function onePagerAnimations(refs) {
-  // console.log('start onePagerAnimations - ref: ', refs[0].current)
   const deviceWidth = window.innerWidth
   const isMobile = deviceWidth < 769
   const wrapper = refs[0].current
@@ -19,9 +18,6 @@ export function onePagerAnimations(refs) {
   const sectionSix = wrapper.querySelector('.sectionSix')
   const sectionSeven = wrapper.querySelector('.sectionSeven')
   const sectionEight = wrapper.querySelector('.sectionEight')
-  // console.log('sectionOne: ', sectionOne)
-  // console.log('isMobile: ', isMobile)
-  // console.log('gsap: ', gsap)
 
   // section 1 - staging
   gsap.set(sectionOne.querySelector('.sectionOneLogo .adidasLogo'), { y: 40, opacity: 0 })
@@ -66,6 +62,19 @@ export function onePagerAnimations(refs) {
   gsap.set(sectionSix.querySelector('.sectionSideBar .navigation'), { opacity: 0 })
   gsap.set(sectionSix.querySelector('.sectionSideBar'), isMobile ? { width: 0 } : { height: 0 })
   gsap.set(sectionSix.querySelector('.sectionContentText'), { zIndex: 30, position: 'absolute', top: '50%', opacity: 0 })
+  // section 7 - staging
+  gsap.set(sectionSeven, { position: 'absolute', top: 0, left: 0, backgroundColor: 'rgb(230, 230, 230, 0)' })
+  gsap.set(sectionSeven.querySelector('.sectionSideBar .navigation'), { opacity: 0 })
+  gsap.set(sectionSeven.querySelector('.sectionSideBar'), isMobile ? { width: 0 } : { height: 0 })
+  gsap.set(sectionSeven.querySelector('.sectionContentText'), { opacity: 0, y: 20 })
+  // section 8 - staging
+  gsap.set(sectionEight, { position: 'absolute', top: 0, left: 0, backgroundColor: 'rgb(230, 230, 230, 0)' })
+  gsap.set(sectionEight.querySelector('.sectionEightLogo .adidasLogo'), { y: 40, opacity: 0 })
+  gsap.set(sectionEight.querySelector('.sectionEightLogo .tagline-impossible'), { display: 'inline-block', y: 20, opacity: 0 })
+  gsap.set(sectionEight.querySelector('.sectionEightLogo .tagline-is'), { display: 'inline-block', y: 20, opacity: 0 })
+  gsap.set(sectionEight.querySelector('.sectionEightLogo .tagline-nothing'), { display: 'inline-block', y: 20, opacity: 0 })
+  gsap.set(sectionEight.querySelector('.sectionEightLogo .tagline-final'), { display: 'inline-block', y: 20, opacity: 0 })
+  gsap.set(sectionEight.querySelector('.sectionSideBar'), isMobile ? { width: 0 } : { height: 0 })
   
   const productsCollageItems = sectionFour.querySelectorAll('.productsCollage div')
 
@@ -156,6 +165,36 @@ export function onePagerAnimations(refs) {
     .to(sectionSix.querySelector('.sectionContentText'), { duration: 0.8, top: '40%', opacity: 1 })
     .to(sectionSix.querySelector('.sectionContentText'), { duration: 0.5, top: '2%', opacity: 1 })
     .to(sectionSix.querySelector('.photographyAssetWrapper'), { duration: 0.5, opacity: 1 })
+    .to(sectionSix, { duration: 1, opacity: 1 })
+    .to(sectionSix.querySelector('.sectionContentText'), { duration: 0.5, opacity: 0 })
+    .to(sectionSix.querySelector('.photographyAssetWrapper'), { duration: 0.5, opacity: 0 }, '-=0.5')
+    .to(sectionSix.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 0 }, '-=0.5')
+    .to(sectionSeven, { duration: 0.5, backgroundColor: 'rgb(230, 230, 230, 1)' }, '-=0.5')
+    .to(sectionSeven.querySelector('.sectionSideBar'), isMobile ? { duration: 0.5, width: '100%' } : { duration: 0.5, height: '100%' }, '-=0.5')
+    .to(sectionSeven.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 1 })
+    .to(sectionSeven.querySelector('.sectionContentText'), { duration: 0.5, y: 0, opacity: 1 })
+    .to(sectionSeven, { duration: 1, opacity: 1 })
+    .to(sectionSeven.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 0 })
+    .to(sectionSeven.querySelector('.sectionSideBar'), { duration: 0.5, opacity: 0 })
+    .to(sectionSeven.querySelector('.sectionContentText'), { duration: 0.5, y: 20, opacity: 0 })
+    .to(sectionEight, { duration: 0.5, backgroundColor: 'rgb(230, 230, 230, 1)' }, '-=0.5')
+    .to(sectionEight.querySelector('.sectionSideBar'), isMobile ? { duration: 0.5, width: '100%' } : { duration: 0.5, height: '100%' }, '-=0.5')
+    .to(sectionEight.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 1 })
+    .to(sectionEight.querySelector('.sectionEightLogo .adidasLogo'), { duration: 1, y: 0, opacity: 1 })
+    .to(sectionEight.querySelector('.sectionEightLogo .tagline-impossible'), { duration: 0.7, y: 0, opacity: 1 }, '-=0.2')
+    .to(sectionEight.querySelector('.sectionEightLogo .tagline-is'), { duration: 0.7, y: 0, opacity: 1 }, '-=0.2')
+    .to(sectionEight.querySelector('.sectionEightLogo .tagline-nothing'), { duration: 0.7, y: 0, opacity: 1 }, '-=0.2')
+    .to(sectionEight.querySelector('.sectionEightLogo .tagline-final'), { 
+      duration: 0.7, 
+      y: 0, 
+      opacity: 1, 
+      onComplete: () => { 
+        document.querySelector('.scrollArrow span').classList.add('reverse') 
+      },
+      onReverseComplete: () => {
+        document.querySelector('.scrollArrow span').classList.remove('reverse') 
+      }
+    })
 
   const warsawAssetsTl = gsap.timeline()
   sectionFive.querySelectorAll('.warsawAdidasHq div').forEach((item) => {

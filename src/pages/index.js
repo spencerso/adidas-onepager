@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from "gsap/dist/gsap"
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { initAnimations } from '~scripts/animations'
@@ -7,7 +7,7 @@ import styles from '~styles/index.module.scss'
 import cn from 'classnames'
 
 function HomePage() {
-  // const { ScrollTrigger } = require=('gsap/ScrollTrigger')
+  const [scrollStatus, setScrollStatus] = useState(1)
   const warsawAssets = []
   const donutRelayAssets = []
   const smlProductAssets = []
@@ -55,13 +55,9 @@ function HomePage() {
     smlProductAssets.push(`sml-product-0${i}`)
   }
 
-  // console.log('warsawAssets: ', warsawAssets)
-  // console.log('donutRelayAssets: ', donutRelayAssets)
-
   useEffect(() => {
     refObjs.push(wrapperRef)
     gsap.registerPlugin(ScrollTrigger)
-    // ScrollTrigger.normalizeScroll(isIOS() ? false : true)
     ScrollTrigger.config({
       limitCallbacks: true,
       ignoreMobileResize: true,
@@ -265,31 +261,11 @@ function HomePage() {
               )
             })}
           </div>
-          {/* <Carousel className={styles.carousel}>
-            <div className={styles.carouselElement}>
-              <img
-                src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
-                alt="SomuchLove Product Collage"
-              />
-            </div>
-            <div className={styles.carouselElement}>
-              <img
-                src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
-                alt="SomuchLove Product Collage"
-              />
-            </div>
-            <div className={styles.carouselElement}>
-              <img
-                src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
-                alt="SomuchLove Product Collage"
-              />
-            </div>
-          </Carousel> */}
         </div>
       </div>
       <div className={cn(styles.sectionSeven, styles.sectionContainer, 'sectionSeven')}>
-        <div className={styles.sectionSideBar}>
-          <div className={styles.navigation}>
+        <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
+          <div className={cn(styles.navigation, 'navigation')}>
             <ul>
               <li>About Me</li>
               <li>somuchlove</li>
@@ -302,8 +278,9 @@ function HomePage() {
           <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
           <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
         </div>
+        <div className={styles.separator}>&nbsp;</div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-          <div className={styles.sectionContentText}>Impossible is nothing means landing an amazing position with the Associated Students of the University of Oregon as the executive communications secretary of events specializing in the second annual spring concert. 
+          <div className={cn(styles.sectionContentText, 'sectionContentText')}>Impossible is nothing means landing an amazing position with the Associated Students of the University of Oregon as the executive communications secretary of events specializing in the second annual spring concert. 
             <p>The event will take place May 10th at the Cuthbert Amphitheater.</p>
             <p>During this time I have had the chance to manage a $365,000 budget with a 4 artist lineup including a student band.</p>
             <p>While working with the finances I have also learned many other skills including project management, creative direction, marketing, advertising, contracting, legal, and much more.</p>
@@ -312,21 +289,22 @@ function HomePage() {
         </div>
       </div>
       <div className={cn(styles.sectionEight, styles.sectionContainer, 'sectionEight')}>
-        <div className={styles.sectionEightLogo}>
+        <div className={cn(styles.sectionEightLogo, 'sectionEightLogo')}>
           <img
             src="https://spencerso.github.io/adidas-onepager/images/adidas-logo.png"
             alt="Adidas Logo"
-            className={styles.adidasLogo}
+            className={cn(styles.adidasLogo, 'adidasLogo')}
             height={'100%'}
             width={'100%'}
           />
-          <p>Impossible Is Nothing Means Endless Possibilities</p>
+          <p><span className={'tagline-impossible'}>Impossible</span> <span className={'tagline-is'}>Is</span> <span className={'tagline-nothing'}>Nothing</span> <span className={'tagline-final'}>Means Endless Possibilities</span></p>
         </div>
-        <div className={cn(styles.sectionSideBar)}>
+        <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
           <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
           <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
         </div>
       </div>
+      <div className={cn(styles.scrollArrow, 'scrollArrow')}><span>&nbsp;</span></div>
     </div>
   );
 }
