@@ -492,6 +492,10 @@
           top: 0;
           width: 100%;
 
+          @include desktop {
+            height: 100vh;
+          }
+
           .warsawAsset {
             min-width: 180px;
             left: 50%;

@@ -7,7 +7,7 @@ export function initAnimations(page, refs) {
 }
 
 export function onePagerAnimations(refs) {
-  console.log('start onePagerAnimations - ref: ', refs[0].current)
+  // console.log('start onePagerAnimations - ref: ', refs[0].current)
   const deviceWidth = window.innerWidth
   const isMobile = deviceWidth < 769
   const wrapper = refs[0].current
@@ -19,9 +19,9 @@ export function onePagerAnimations(refs) {
   const sectionSix = wrapper.querySelector('.sectionSix')
   const sectionSeven = wrapper.querySelector('.sectionSeven')
   const sectionEight = wrapper.querySelector('.sectionEight')
-  console.log('sectionOne: ', sectionOne)
-  console.log('isMobile: ', isMobile)
-  console.log('gsap: ', gsap)
+  // console.log('sectionOne: ', sectionOne)
+  // console.log('isMobile: ', isMobile)
+  // console.log('gsap: ', gsap)
 
   // section 1 - staging
   gsap.set(sectionOne.querySelector('.sectionOneLogo .adidasLogo'), { y: 40, opacity: 0 })
@@ -80,7 +80,7 @@ export function onePagerAnimations(refs) {
       end: window.innerHeight * 30,
       scrub: true,
       pin: true,
-      markers: true,
+      markers: false,
     }
   })
   sectionTwoTl
@@ -148,14 +148,16 @@ export function onePagerAnimations(refs) {
 
   const warsawAssetsTl = gsap.timeline()
   sectionFive.querySelectorAll('.warsawAdidasHq div').forEach((item) => {
+    const imgWidth = isMobile ? getRandomInteger(180, 250) : getRandomInteger(300, 450)
     warsawAssetsTl
-    .fromTo(item, { y: '80vh', left: `${getRandomInteger(25,80)}%`, width: `${getRandomInteger(180, 250)}px` }, { duration: getRandomInteger(30,40), y: '-100vh', repeat: -1 }, '-=30')
+    .fromTo(item, { y: isMobile ? '80vh' : '100vh', left: `${getRandomInteger(25,80)}%`, width: `${imgWidth}px` }, { duration: getRandomInteger(30,40), y: '-100vh', repeat: -1 }, '-=30')
   })
 
   const warsawAssetsDonutRelayTl = gsap.timeline()
   sectionFive.querySelectorAll('.warsawDonutRelay div').forEach((item) => {
+    const imgWidth = isMobile ? getRandomInteger(180, 250) : getRandomInteger(300, 450)
     warsawAssetsDonutRelayTl
-      .fromTo(item, { y: '80vh', left: `${getRandomInteger(25,80)}%`, width: `${getRandomInteger(180, 250)}px` }, { duration: getRandomInteger(30,40), y: '-100vh', repeat: -1 }, '-=30')
+      .fromTo(item, { y: isMobile ? '80vh' : '100vh', left: `${getRandomInteger(25,80)}%`, width: `${imgWidth}px` }, { duration: getRandomInteger(30,40), y: '-100vh', repeat: -1 }, '-=30')
   })
 
   function getRandomInteger(min, max) {

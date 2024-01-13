@@ -30,8 +30,8 @@ function HomePage() {
     smlProductAssets.push(`sml-product-0${i}`)
   }
 
-  console.log('warsawAssets: ', warsawAssets)
-  console.log('donutRelayAssets: ', donutRelayAssets)
+  // console.log('warsawAssets: ', warsawAssets)
+  // console.log('donutRelayAssets: ', donutRelayAssets)
 
   useEffect(() => {
     refObjs.push(wrapperRef)
