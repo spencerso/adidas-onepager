@@ -131,6 +131,7 @@ function HomePage() {
           <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
           <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
         </div>
+        <div className={styles.separator}>&nbsp;</div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
           <img
             className={cn(styles.backgroundImage, 'backgroundImage')}
@@ -153,8 +154,8 @@ function HomePage() {
         </div>
       </div>
       <div className={cn(styles.sectionFive, styles.sectionContainer, 'sectionFive')}>
-        <div className={styles.sectionSideBar}>
-          <div className={styles.navigation}>
+        <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
+          <div className={cn(styles.navigation, 'navigation')}>
             <ul>
               <li>About Me</li>
               <li>somuchlove</li>
@@ -166,14 +167,15 @@ function HomePage() {
           <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
           <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
         </div>
+        <div className={styles.separator}>&nbsp;</div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-          <div className={styles.sectionContentText}>Impossible is nothing means finding myself during sophomore year by joining the Warsaw Sports Business Club.</div>
+          <div className={cn(styles.sectionContentText, 'sectionContentText')}>Impossible is nothing means finding myself during sophomore year by joining the Warsaw Sports Business Club.</div>
           <img
-            className={styles.warsawAssetDefault}
+            className={cn(styles.warsawAssetDefault, 'warsawAssetDefault')}
             src="https://spencerso.github.io/adidas-onepager/images/warsaw-activities.jpg"
             alt="Warsaw Business Club Adidas Visit"
           />
-          <div className={styles.warsawAssets}>
+          <div className={cn(styles.warsawAssets, 'warsawAdidasHq')}>
             {warsawAssets.map((asset, index) => {
               return (
                 <div key={index} className={styles.warsawAsset}>
@@ -185,13 +187,13 @@ function HomePage() {
               )
             })}
           </div>
-          <div className={cn(styles.sectionContentText, styles.sectionContentTextDivider)}>Visiting the Adidas campus</div>
+          <div className={cn(styles.sectionContentText, styles.sectionContentTextDivider, 'warsawAdidasHqText')}>Visiting the Adidas campus</div>
           <img
-            className={styles.warsawAssetDefault}
+            className={cn(styles.warsawAssetDefault, 'warsawDonutRelayDefault')}
             src="https://spencerso.github.io/adidas-onepager/images/warsaw-events.jpg"
             alt="Warsaw Business Club Events"
           />
-          <div className={styles.warsawAssets}>
+          <div className={cn(styles.warsawAssets, 'warsawDonutRelay')}>
             {donutRelayAssets.map((asset, index) => {
               return (
                 <div key={index} className={styles.warsawAsset}>
@@ -203,7 +205,7 @@ function HomePage() {
               )
             })}
           </div>
-          <div className={styles.sectionContentText}>and Running the 2nd annual Warsaw Donut Relay</div>
+          <div className={cn(styles.sectionContentText, 'warsawDonutRelayText')}>and Running the 2nd annual Warsaw Donut Relay</div>
         </div>
       </div>
       <div className={cn(styles.sectionSix, styles.sectionContainer, 'sectionSix')}>

@@ -206,7 +206,7 @@
 
     &.sectionThree {
       align-content: space-between;
-      background-color: #ffc0cb;
+      background-color: #fbc0ff;
 
       .sectionSideBar {
         order: 3;
@@ -276,10 +276,14 @@
 
     &.sectionFour {
       align-content: space-between;
-      background-color: #E6E6E6;
+      background-color: rgb(250, 183, 251); //#E6E6E6;
 
       .sectionSideBar {
-        order: 2;
+        order: 3;
+
+        @include desktop {
+          order: 1;
+        }
 
         .sectionSideBarBase {
           background-color: #757575;
@@ -439,7 +443,11 @@
       background-color: #E6E6E6;
 
       .sectionSideBar {
-        order: 2;
+        order: 3;
+
+        @include desktop {
+          order: 1;
+        }
 
         .sectionSideBarBase {
           background-color: #757575;
@@ -476,33 +484,51 @@
         }
 
         .warsawAssets {
+          height: 80vh;
           left: 0;
+          opacity: 0;
+          overflow: hidden;
           position: absolute;
           top: 0;
           width: 100%;
 
           .warsawAsset {
-            opacity: 0;
-            width: 100%;
+            min-width: 180px;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
 
             img {
+              border: 10px solid $white;
+              box-shadow: 2px 2px 3px $color-cc;
               height: 100%;
               object-fit: cover;
               object-position: center;
               width: 100%;
             }
-
-            &:not(:first-child) {
-              left: 0;
-              position: absolute;
-              top: 0;
-            }
           }
         }
 
         .sectionContentText {
+          background-color: rgba(232, 230, 230, 0.9);
+          border-top: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
           font-size: 18px;
           margin-top: 5px;
+          padding: 5px 0;
+          width: 100%;
+          
+          &:before {
+            background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
+            bottom: -3px;
+            content: "";
+            height: 2px;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+            width: 80%;
+          }
 
           @include desktop {
             font-size: 22px;
