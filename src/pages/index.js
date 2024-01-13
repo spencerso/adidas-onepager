@@ -10,6 +10,7 @@ function HomePage() {
   const warsawAssets = []
   const donutRelayAssets = []
   const smlProductAssets = []
+  const asuoAssets = []
   const wrapperRef = useRef()
   const refObjs = []
 
@@ -52,6 +53,10 @@ function HomePage() {
 
   for (var i = 1; i < 10; i++) {
     smlProductAssets.push(`sml-product-0${i}`)
+
+    if (i < 6) {
+      asuoAssets.push(`asuo-inset-0${i}`)
+    }
   }
 
   useEffect(() => {
@@ -293,6 +298,18 @@ function HomePage() {
               <p>During this time I have had the chance to manage a $365,000 budget with a 4 artist lineup including a student band.</p>
               <p>While working with the finances I have also learned many other skills including project management, creative direction, marketing, advertising, contracting, legal, and much more.</p>
               <p><strong>Impossible Is Nothing</strong> shows me I can make a difference in any community.</p>
+            </div>
+            <div className={cn(styles.asuoAssets, 'asuoAssets')}>
+              {asuoAssets.map((asset, index) => {
+                return (
+                  <div className={cn(styles.asuoAsset, 'asuoAsset')}>
+                    <img
+                      src={`/images/asuo/${asset}.jpg`}
+                      alt="ASUO Student Government Photos"
+                    />
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>

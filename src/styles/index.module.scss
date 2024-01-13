@@ -89,6 +89,20 @@
       }
     }
 
+    .sectionBgLogo {
+      display: flex;
+      left: 50%;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+
+      img {
+        max-height: 188px;
+      }
+    }
+
     &.sectionOne {
       .sectionOneLogo {
         height: fit-content;
@@ -124,7 +138,7 @@
     &.sectionTwo {
       background-color: $black;
       // background-image: url('https://spencerso.github.io/adidas-onepager/images/adidas-logo.png');
-      // background-position: center;
+      // background-position: center 31%;
       // background-size: 300px 188px;
       // background-repeat: no-repeat;
 
@@ -712,12 +726,6 @@
           width: 60%;
         }
 
-        img {
-          display: block;
-          margin: 20px auto 0;
-          width: 100%;
-        }
-
         .sectionContentText {
           font-size: 18px;
           margin-top: 5px;
@@ -728,6 +736,25 @@
 
           &.sectionContentTextDivider {
             margin-bottom: 50px;
+          }
+        }
+
+        .asuoAssets {
+          align-content: center;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          .asuoAsset {
+            width: 20%;
+
+            img {
+              height: 100%;
+              margin: 0;
+              object-fit: cover;
+              object-position: center;
+              width: 100%;
+            }
           }
         }
       }

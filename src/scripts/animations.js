@@ -67,6 +67,7 @@ export function onePagerAnimations(refs) {
   gsap.set(sectionSeven.querySelector('.sectionSideBar .navigation'), { opacity: 0 })
   gsap.set(sectionSeven.querySelector('.sectionSideBar'), isMobile ? { width: 0 } : { height: 0 })
   gsap.set(sectionSeven.querySelector('.sectionContentText'), { opacity: 0, y: 20 })
+  gsap.set(sectionSeven.querySelector('.asuoAssets'), { y: 20, opacity: 0 })
   // section 8 - staging
   gsap.set(sectionEight, { position: 'absolute', top: 0, left: 0, backgroundColor: 'rgb(230, 230, 230, 0)' })
   gsap.set(sectionEight.querySelector('.sectionEightLogo .adidasLogo'), { y: 40, opacity: 0 })
@@ -173,10 +174,12 @@ export function onePagerAnimations(refs) {
     .to(sectionSeven.querySelector('.sectionSideBar'), isMobile ? { duration: 0.5, width: '100%' } : { duration: 0.5, height: '100%' }, '-=0.5')
     .to(sectionSeven.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 1 })
     .to(sectionSeven.querySelector('.sectionContentText'), { duration: 0.5, y: 0, opacity: 1 })
+    .to(sectionSeven.querySelector('.asuoAssets'), { duration: 0.5, y: 0, opacity: 1 }, '-=0.5')
     .to(sectionSeven, { duration: 1, opacity: 1 })
     .to(sectionSeven.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 0 })
     .to(sectionSeven.querySelector('.sectionSideBar'), { duration: 0.5, opacity: 0 })
     .to(sectionSeven.querySelector('.sectionContentText'), { duration: 0.5, y: 20, opacity: 0 })
+    .to(sectionSeven.querySelector('.asuoAssets'), { duration: 0.5, opacity: 0 }, '-=0.5')
     .to(sectionEight, { duration: 0.5, backgroundColor: 'rgb(230, 230, 230, 1)' }, '-=0.5')
     .to(sectionEight.querySelector('.sectionSideBar'), isMobile ? { duration: 0.5, width: '100%' } : { duration: 0.5, height: '100%' }, '-=0.5')
     .to(sectionEight.querySelector('.sectionSideBar .navigation'), { 
