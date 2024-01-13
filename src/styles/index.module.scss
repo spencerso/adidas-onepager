@@ -550,7 +550,12 @@
       background-color: #E6E6E6;
 
       .sectionSideBar {
-        order: 2;
+        order: 3;
+
+        @include desktop {
+          order: 1;
+          z-index: 40;
+        }
 
         .sectionSideBarBase {
           background-color: #757575;
@@ -567,7 +572,7 @@
         flex-wrap: wrap;
         height: 74%;
         margin: 0 auto;
-        width: 90%;
+        width: 100%;
 
         @include desktop {
           align-content: center;
@@ -579,18 +584,63 @@
           width: 60%;
         }
 
-        img {
-          display: block;
-          margin: 20px auto 0;
+        .photographyAssetWrapper {
+          height: 80vh;
+          left: 0;
+          opacity: 0;
+          overflow: hidden;
+          position: absolute;
+          top: 0;
           width: 100%;
+
+          @include desktop {
+            height: 100vh;
+          }
+
+          .photographyAssetItem {
+            min-width: 180px;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            img {
+              border: 10px solid $white;
+              box-shadow: 2px 2px 3px $color-cc;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+              width: 100%;
+            }
+          }
         }
 
         .sectionContentText {
+          background-color: rgba(232, 230, 230, 0.9);
+          border-top: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+          box-sizing: border-box;
           font-size: 18px;
           margin-top: 5px;
+          padding: 15px;
+          width: 100%;
+          
+          &:before {
+            background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.3), transparent);
+            bottom: -3px;
+            content: "";
+            height: 2px;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+            width: 80%;
+          }
 
           @include desktop {
             font-size: 22px;
+            left: 0;
+            padding: 15px 5% 15px 30%;
+            width: 100%;
           }
 
           a br {

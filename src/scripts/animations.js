@@ -61,6 +61,11 @@ export function onePagerAnimations(refs) {
   gsap.set(sectionFive.querySelector('.warsawAdidasHqText'), { y: 20, opacity: 0 })
   gsap.set(sectionFive.querySelector('.warsawDonutRelayDefault'), { opacity: 0 })
   gsap.set(sectionFive.querySelector('.warsawDonutRelayText'), { y: 20, opacity: 0 })
+  // section 6 - staging
+  gsap.set(sectionSix, { position: 'absolute', top: 0, left: 0, backgroundColor: 'rgb(230, 230, 230, 0)' })
+  gsap.set(sectionSix.querySelector('.sectionSideBar .navigation'), { opacity: 0 })
+  gsap.set(sectionSix.querySelector('.sectionSideBar'), isMobile ? { width: 0 } : { height: 0 })
+  gsap.set(sectionSix.querySelector('.sectionContentText'), { zIndex: 30, position: 'absolute', top: '50%', opacity: 0 })
   
   const productsCollageItems = sectionFour.querySelectorAll('.productsCollage div')
 
@@ -145,6 +150,12 @@ export function onePagerAnimations(refs) {
     .to(sectionFive.querySelector('.warsawDonutRelay'), { duration: 0.5, opacity: 0 }, '-=0.3')
     .to(sectionFive.querySelector('.sectionContentText'), { duration: 0.5, opacity: 0 })
     .to(sectionFive.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 0 }, '-=0.2')
+    .to(sectionSix, { duration: 0.5, backgroundColor: 'rgb(230, 230, 230, 1)' }, '-=0.5')
+    .to(sectionSix.querySelector('.sectionSideBar'), isMobile ? { duration: 0.5, width: '100%' } : { duration: 0.5, height: '100%' }, '-=0.5')
+    .to(sectionSix.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 1 })
+    .to(sectionSix.querySelector('.sectionContentText'), { duration: 0.8, top: '40%', opacity: 1 })
+    .to(sectionSix.querySelector('.sectionContentText'), { duration: 0.5, top: '2%', opacity: 1 })
+    .to(sectionSix.querySelector('.photographyAssetWrapper'), { duration: 0.5, opacity: 1 })
 
   const warsawAssetsTl = gsap.timeline()
   sectionFive.querySelectorAll('.warsawAdidasHq div').forEach((item) => {
@@ -158,6 +169,13 @@ export function onePagerAnimations(refs) {
     const imgWidth = isMobile ? getRandomInteger(180, 250) : getRandomInteger(300, 450)
     warsawAssetsDonutRelayTl
       .fromTo(item, { y: isMobile ? '80vh' : '100vh', left: `${getRandomInteger(25,80)}%`, width: `${imgWidth}px` }, { duration: getRandomInteger(30,40), y: '-100vh', repeat: -1 }, '-=30')
+  })
+
+  const photographyAssetsTl = gsap.timeline()
+  sectionSix.querySelectorAll('.photographyAssetWrapper div').forEach((item) => {
+    const imgWidth = isMobile ? getRandomInteger(180, 250) : getRandomInteger(300, 450)
+    photographyAssetsTl
+      .fromTo(item, { x: '100vw', top: `${getRandomInteger(25,80)}%`, width: `${imgWidth}px` }, { duration: getRandomInteger(30,40), x: '-100vw', repeat: -1 }, '-=30')
   })
 
   function getRandomInteger(min, max) {

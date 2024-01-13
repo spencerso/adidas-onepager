@@ -14,6 +14,31 @@ function HomePage() {
   const wrapperRef = useRef()
   const refObjs = []
 
+  const photographyAssets = [
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/c3c9802c-57c8-46db-9817-8cfc600189a2_rw_1200.jpg?h=b1980d26a811e6ddf9485bf138f474e0',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/0afe1d74-ef18-4820-a82b-ffc231949d7e_rw_1200.jpg?h=7cbc247a5fedc14fb01d4f75ab890136',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/eff6e547-1058-42cf-bdd8-62e74020f49d_rw_1200.jpg?h=121ea34db46401889253e6e14cd55bf3',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/6ca4ecd5-bd34-491a-95ea-48f4601b7584_rw_1200.jpg?h=cb410f17a96f96e6efe9248fbe8562d2',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/15db9db3-13c6-4479-8caa-78e83d5e5f4b_rw_1920.jpg?h=e832b83f77074a60544f516059638ae3',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/679191b1-3d5e-4c79-b878-34e295e5a12a_rw_1200.jpg?h=eab82fd0d3b66201902552c87054a16b',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/84c9336b-e5c4-4fae-a284-460784d4dc22_rw_1200.jpg?h=07b6beeebe4011f481df3a3909f53bdd',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/1528d5ee-0bc5-409d-b7fe-4db701fb7ad6_rw_1200.jpg?h=59ac4145947e378c10d7c90c0e129690',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/58d297b1-8b86-483b-8253-3365fc42f57e_rw_1200.jpg?h=2a230a51c19c1f885d449957938f7746',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/aae8b4e3-2dea-4263-9729-e351ad27632f_rw_1200.jpg?h=caff4ac1bf20e44817f0f68c717c6a23',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/4292eab2-b132-4268-87bf-8f606c5a05b3_rw_1200.jpg?h=83c214b8dd801aa9f0c813bc038416f7',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/83895fbd-e308-4b8d-8fc9-c40526c0084c_rw_1200.jpg?h=f8cfbd4ee8d42574e5c46d7a2562a2ce',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/6b3e763d-7d2d-4551-ac1b-9271aa48fb75_rw_1200.jpg?h=25a7341dce830fd2356bac59cbacad43',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/cb8639e4-9482-46cb-84c1-d655e379160d_rw_1200.jpg?h=b7d357cf8ed21f5adca77e4ad046157a',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/5de0ac4b-28a8-4877-bf34-d81bb7102b79_rw_1200.jpg?h=de0e6ba303d6f197d4f7ccecba312151',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/e98d40c5-9977-401f-9868-2e876c8adfc0_rw_1920.jpg?h=7618ad7ee1f827b04d2452336b469e52',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/2ce88a3a-9915-4064-9a59-3a44a47ae62f_rw_1200.jpg?h=aad290718f67ad92c5968cb01981a209',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/09932f3f-7907-4a13-b6aa-019a91c79a80_rw_1200.jpg?h=23cace5da420806ea009dbf71401e0c6',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/4485ccb7-3eab-4b13-a367-44dbc80aba9a_rw_1200.jpg?h=5081081a50f45d7a067053ef9546f64f',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/b11ca800-3e0a-46c6-9d2d-426b4e4f6852_rw_1200.jpg?h=73d829e806d9bf26a7b27601207084c7',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/9cd53901-3e48-4b55-a1bb-8b1d6968e153_rw_1200.jpg?h=6b3c404deab6accc88877f9336bfb19b',
+    'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/785784d4-63e9-48d4-8c39-de546277709d_rw_1200.jpg?h=c43c2212c3747191e42a8f198c1f6a95'
+  ]
+
   for (var i = 0; i < 19; i++) {
     let num = i
     if (i < 10) {
@@ -209,8 +234,8 @@ function HomePage() {
         </div>
       </div>
       <div className={cn(styles.sectionSix, styles.sectionContainer, 'sectionSix')}>
-        <div className={styles.sectionSideBar}>
-          <div className={styles.navigation}>
+        <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
+          <div className={cn(styles.navigation, 'navigation')}>
             <ul>
               <li>About Me</li>
               <li>somuchlove</li>
@@ -223,29 +248,43 @@ function HomePage() {
           <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
           <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
         </div>
+        <div className={styles.separator}>&nbsp;</div>
         <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-          <div className={styles.sectionContentText}>Impossible is nothing is finding an opportunity with the Daily Emerald to learn as I work shooting   different photo for various articles and sporting events.
-            <p><a href="https://www.dailyemerald.com/users/profile/spencer%20so/" target="_blank">https://www.dailyemerald.com/users/<br/>profile/spencer%20so/</a></p></div>
-            <Carousel className={styles.carousel}>
-              <div className={styles.carouselElement}>
-                <img
-                  src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
-                  alt="SomuchLove Product Collage"
-                />
-              </div>
-              <div className={styles.carouselElement}>
-                <img
-                  src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
-                  alt="SomuchLove Product Collage"
-                />
-              </div>
-              <div className={styles.carouselElement}>
-                <img
-                  src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
-                  alt="SomuchLove Product Collage"
-                />
-              </div>
-            </Carousel>
+          <div className={cn(styles.sectionContentText, 'sectionContentText')}>Impossible is nothing is finding an opportunity with the Daily Emerald to learn as I work shooting   different photo for various articles and sporting events.
+            <p><a href="https://www.dailyemerald.com/users/profile/spencer%20so/" target="_blank">https://www.dailyemerald.com/users/<br/>profile/spencer%20so/</a></p>
+          </div>
+          <div className={cn(styles.photographyAssetWrapper, 'photographyAssetWrapper')}>
+            {photographyAssets.map((asset, index) => {
+              return (
+                <div key={index} className={cn(styles.photographyAssetItem, 'photographyAssetItem')}>
+                  <img
+                    src={asset}
+                    alt="Daily Emerald Photos"
+                  />
+                </div>
+              )
+            })}
+          </div>
+          {/* <Carousel className={styles.carousel}>
+            <div className={styles.carouselElement}>
+              <img
+                src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
+                alt="SomuchLove Product Collage"
+              />
+            </div>
+            <div className={styles.carouselElement}>
+              <img
+                src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
+                alt="SomuchLove Product Collage"
+              />
+            </div>
+            <div className={styles.carouselElement}>
+              <img
+                src="https://spencerso.github.io/adidas-onepager/images/sml-products.jpg"
+                alt="SomuchLove Product Collage"
+              />
+            </div>
+          </Carousel> */}
         </div>
       </div>
       <div className={cn(styles.sectionSeven, styles.sectionContainer, 'sectionSeven')}>
@@ -281,7 +320,7 @@ function HomePage() {
             height={'100%'}
             width={'100%'}
           />
-          <p>Impossible Means Nothing is Endless Possibilities</p>
+          <p>Impossible Is Nothing Means Endless Possibilities</p>
         </div>
         <div className={cn(styles.sectionSideBar)}>
           <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
