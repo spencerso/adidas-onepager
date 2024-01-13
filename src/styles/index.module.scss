@@ -433,10 +433,19 @@
         .sectionContentText {
           font-size: 18px;
           margin-top: 60px;
+          width: 90%;
 
           @include desktop {
             font-size: 22px;
             margin-top: 40px;
+
+            top: 70%;
+            padding: 20px;
+            background: rgba(255,255,255,0.5);
+            border: 1px solid #999;
+            border-radius: 10px;
+            box-shadow: 3px 3px 6px #999;
+            width: 54%;
           }
         }
       }
@@ -763,12 +772,20 @@
 
   .scrollArrow {
     animation: bounce 2s infinite;
-    position: fixed;
+    background-color: rgba(255,255,255,0.3);
+    border: 1px solid white;
+    border-radius: 50%;
     bottom: 30px;
-    left: 50%;
+    height: 20px;
+    left: 46%;
+    position: fixed;
+    padding: 10px;
     transform: translate(-50%, 0);
     width: 20px;
-    height: 20px;
+
+    @include desktop {
+      left: 48%;
+    }
 
     span {
       background: url(https://www.nio.com/cdn-static/mynio/nextjs/images/testimonials/down-chevron-black.svg) no-repeat center;

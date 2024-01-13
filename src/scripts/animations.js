@@ -46,7 +46,7 @@ export function onePagerAnimations(refs) {
   gsap.set(sectionFour, { position: 'absolute', top: 0, left: 0, backgroundColor: 'rgb(250, 183, 251, 0)' })
   gsap.set(sectionFour.querySelector('.sectionSideBar .navigation'), { opacity: 0 })
   gsap.set(sectionFour.querySelector('.sectionSideBar'), isMobile ? { width: 0 } : { height: 0 })
-  gsap.set(sectionFour.querySelector('.sectionContentText'), { zIndex: 20, position: 'absolute', y: 0, opacity: 0, width: '90%' })
+  gsap.set(sectionFour.querySelector('.sectionContentText'), { zIndex: 20, position: 'absolute', y: 0, opacity: 0 })
   gsap.set(sectionFour.querySelector('.backgroundImage'), { opacity: 0 })
   // section 5 - staging
   gsap.set(sectionFive, { position: 'absolute', top: 0, left: 0, backgroundColor: 'rgb(230, 230, 230, 0)' })
@@ -179,7 +179,13 @@ export function onePagerAnimations(refs) {
     .to(sectionSeven.querySelector('.sectionContentText'), { duration: 0.5, y: 20, opacity: 0 })
     .to(sectionEight, { duration: 0.5, backgroundColor: 'rgb(230, 230, 230, 1)' }, '-=0.5')
     .to(sectionEight.querySelector('.sectionSideBar'), isMobile ? { duration: 0.5, width: '100%' } : { duration: 0.5, height: '100%' }, '-=0.5')
-    .to(sectionEight.querySelector('.sectionSideBar .navigation'), { duration: 0.5, opacity: 1 })
+    .to(sectionEight.querySelector('.sectionSideBar .navigation'), { 
+      duration: 0.5, 
+      opacity: 1,
+      onReverseComplete: () => {
+        document.querySelector('.scrollArrow span').classList.remove('reverse') 
+      }
+     })
     .to(sectionEight.querySelector('.sectionEightLogo .adidasLogo'), { duration: 1, y: 0, opacity: 1 })
     .to(sectionEight.querySelector('.sectionEightLogo .tagline-impossible'), { duration: 0.7, y: 0, opacity: 1 }, '-=0.2')
     .to(sectionEight.querySelector('.sectionEightLogo .tagline-is'), { duration: 0.7, y: 0, opacity: 1 }, '-=0.2')
@@ -190,9 +196,6 @@ export function onePagerAnimations(refs) {
       opacity: 1, 
       onComplete: () => { 
         document.querySelector('.scrollArrow span').classList.add('reverse') 
-      },
-      onReverseComplete: () => {
-        document.querySelector('.scrollArrow span').classList.remove('reverse') 
       }
     })
 
