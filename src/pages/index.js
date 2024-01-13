@@ -2,13 +2,11 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from "gsap/dist/gsap"
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { initAnimations } from '~scripts/animations'
-// import Carousel from '~components/carousel'
 import Head from 'next/head'
 import styles from '~styles/index.module.scss'
 import cn from 'classnames'
 
 function HomePage() {
-  const [scrollStatus, setScrollStatus] = useState(1)
   const warsawAssets = []
   const donutRelayAssets = []
   const smlProductAssets = []
@@ -134,7 +132,7 @@ function HomePage() {
           </div>
           <div className={styles.separator}>&nbsp;</div>
           <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means I can start my own clothing brand in high school. somuchlove is something I built as a way to stand up for social injustices I have experienced from being an Asian American during the Stop Asian Hate movement to my friend's transition in middle school.</div>
+            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means I can start my own clothing brand in high school. somuchlove is something I built as a way to stand up for social injustices I have experienced from being an Asian American during the Stop Asian Hate movement to my friend&apos;s transition in middle school.</div>
             <p className={cn(styles.iconographyTitle, 'iconographyTitle')}>Iconography</p>
             <div className={styles.iconography}>
               <span className={'iconographyLabelOne'}>2018</span>
