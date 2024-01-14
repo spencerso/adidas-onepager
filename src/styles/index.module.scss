@@ -37,14 +37,17 @@
           list-style: none;
 
           li {
+            cursor: pointer;
             font-size: 14px;
 
             @include desktop {
               font-size: 18px;
             }
 
+            &.isActive,
             strong {
               font-size: 18px;
+
               @include desktop {
                 font-size: 22px;
               }
@@ -543,9 +546,10 @@
         }
 
         .sectionContentText {
-          background-color: rgba(232, 230, 230, 0.9);
+          background-color: rgb(27, 27, 27, 0.9);
           border-top: 1px solid #ccc;
           border-bottom: 1px solid #ccc;
+          color: $white;
           font-size: 18px;
           margin-top: 5px;
           padding: 5px 0;
@@ -644,7 +648,7 @@
         }
 
         .sectionContentText {
-          background-color: rgba(232, 230, 230, 0.9);
+          background-color: rgb(217, 234, 211, 0.9);
           border-top: 1px solid #ccc;
           border-bottom: 1px solid #ccc;
           box-sizing: border-box;
@@ -810,6 +814,7 @@
     padding: 10px;
     transform: translate(-50%, 0);
     width: 20px;
+    z-index: 30;
 
     @include desktop {
       left: 48%;
