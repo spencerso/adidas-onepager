@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { gsap } from "gsap/dist/gsap"
+import { useEffect, useRef } from 'react'
+import { gsap, ScrollToPlugin } from "gsap/dist/gsap"
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { initAnimations } from '~scripts/animations'
 import Head from 'next/head'
@@ -13,6 +13,11 @@ function HomePage() {
   const asuoAssets = []
   const wrapperRef = useRef()
   const refObjs = []
+  const aboutRef = useRef()
+  const smlRef = useRef()
+  const warsawRef = useRef()
+  const emeraldRef = useRef()
+  const asuoRef = useRef()
 
   const photographyAssets = [
     'https://cdn.myportfolio.com/948b96ca-fec4-4f2b-b872-dbd5aaa5661c/c3c9802c-57c8-46db-9817-8cfc600189a2_rw_1200.jpg?h=b1980d26a811e6ddf9485bf138f474e0',
@@ -62,12 +67,34 @@ function HomePage() {
   useEffect(() => {
     refObjs.push(wrapperRef)
     gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollToPlugin)
     ScrollTrigger.config({
       limitCallbacks: true,
       ignoreMobileResize: true,
     })
     initAnimations('index', refObjs)
   }, [])
+
+  const handleNavigation = (section) => {
+    // if (section && section.current) {
+    //   console.log('handleNavigation - section: ', section.current)
+    //   section.current.scrollIntoView({ behavior: 'smooth' });
+    // }
+  }
+
+  const SideBarNavi = ({ section }) => {
+    return (
+      <div className={cn(styles.navigation, 'navigation')}>
+        <ul>
+          <li className={section === 'about' ? styles.isActive : ''} onClick={() => {handleNavigation(aboutRef)}}>About Me</li>
+          <li className={section === 'sml' ? styles.isActive : ''} onClick={() => {handleNavigation(smlRef)}}>somuchlove</li>
+          <li className={section === 'warsaw' ? styles.isActive: ''} onClick={() => {handleNavigation(warsawRef)}}>Warsaw Sports<br/>Business Club</li>
+          <li className={section === 'emerald' ? styles.isActive : ''} onClick={() => {handleNavigation(emeraldRef)}}>Daily Emerald</li>
+          <li className={section === 'asuo' ? styles.isActive : ''} onClick={() => {handleNavigation(asuoRef)}}>ASUO</li>
+        </ul>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -96,17 +123,9 @@ function HomePage() {
             <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
           </div>
         </div>
-        <div className={cn(styles.sectionTwo, styles.sectionContainer, 'sectionTwo')}>
+        <div ref={aboutRef} className={cn(styles.sectionTwo, styles.sectionContainer, 'sectionTwo')}>
           <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
-            <div className={cn(styles.navigation, 'navigation')}>
-              <ul>
-                <li><strong>About Me</strong></li>
-                <li>somuchlove</li>
-                <li>Warsaw Sports<br/>Business Club</li>
-                <li>Daily Emerald</li>
-                <li>ASUO</li>
-              </ul>
-            </div>
+            <SideBarNavi section={'about'} />
             <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
             <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
           </div>
@@ -118,26 +137,18 @@ function HomePage() {
                 alt="Profile Photo"
               />
             </div>
-            <div className={cn(styles.sectionContentText, 'profileText')}>Hey, My name is Spencer So. I am a student creative from the University of Oregon, originally from San Jose, CA. this is why <strong>Impossible Is Nothing</strong>.</div>
+            <div className={cn(styles.sectionContentText, 'profileText')}>Hey, my name is Spencer So. I am a student creative from the University of Oregon, originally from San Jose, CA. This is why <strong>Impossible Is Nothing</strong>.</div>
           </div>
         </div>
-        <div className={cn(styles.sectionThree, styles.sectionContainer, 'sectionThree')}>
+        <div id={'smlRef'} ref={smlRef} className={cn(styles.sectionThree, styles.sectionContainer, 'sectionThree')}>
           <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
-            <div className={cn(styles.navigation, 'navigation')}>
-              <ul>
-                <li>About Me</li>
-                <li><strong>somuchlove</strong></li>
-                <li>Warsaw Sports<br/>Business Club</li>
-                <li>Daily Emerald</li>
-                <li>ASUO</li>
-              </ul>
-            </div>
+            <SideBarNavi section={'sml'} />
             <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
             <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
           </div>
           <div className={styles.separator}>&nbsp;</div>
           <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means I can start my own clothing brand in high school. somuchlove is something I built as a way to stand up for social injustices I have experienced from being an Asian American during the Stop Asian Hate movement to my friend&apos;s transition in middle school.</div>
+            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means I established my own clothing brand in high school. somuchlove was built as a way to stand up for social injustices, from my friend&rsquo;s transition in middle school to my experiences as an Asian American during the Stop Asian Hate movement.</div>
             <p className={cn(styles.iconographyTitle, 'iconographyTitle')}>Iconography</p>
             <div className={styles.iconography}>
               <span className={'iconographyLabelOne'}>2018</span>
@@ -153,15 +164,7 @@ function HomePage() {
         </div>
         <div className={cn(styles.sectionFour, styles.sectionContainer, 'sectionFour')}>
           <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
-            <div className={cn(styles.navigation, 'navigation')}>
-              <ul>
-                <li>About Me</li>
-                <li><strong>somuchlove</strong></li>
-                <li>Warsaw Sports<br/>Business Club</li>
-                <li>Daily Emerald</li>
-                <li>ASUO</li>
-              </ul>
-            </div>
+            <SideBarNavi section={'sml'} />
             <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
             <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
           </div>
@@ -184,26 +187,18 @@ function HomePage() {
                 )
               })}
             </div>
-            <div className={cn(styles.sectionContentText, 'sectionContentText')}>somuchlove will become a multi-media company made by artists for artists.</div>
+            <div className={cn(styles.sectionContentText, 'sectionContentText')}>somuchlove will evolve into a multi-media company made by artists for artists.</div>
           </div>
         </div>
-        <div className={cn(styles.sectionFive, styles.sectionContainer, 'sectionFive')}>
+        <div ref={warsawRef} className={cn(styles.sectionFive, styles.sectionContainer, 'sectionFive')}>
           <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
-            <div className={cn(styles.navigation, 'navigation')}>
-              <ul>
-                <li>About Me</li>
-                <li>somuchlove</li>
-                <li><strong>Warsaw Sports<br/>Business Club</strong></li>
-                <li>Daily Emerald</li>
-                <li>ASUO</li>
-              </ul>
-            </div>
+            <SideBarNavi section={'warsaw'} />
             <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
             <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
           </div>
           <div className={styles.separator}>&nbsp;</div>
           <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means finding myself during sophomore year by joining the Warsaw Sports Business Club.</div>
+            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means finding myself during my sophomore year by joining the Warsaw Sports Business Club.</div>
             <img
               className={cn(styles.warsawAssetDefault, 'warsawAssetDefault')}
               src="https://spencerso.github.io/adidas-onepager/images/warsaw-activities.jpg"
@@ -242,24 +237,15 @@ function HomePage() {
             <div className={cn(styles.sectionContentText, 'warsawDonutRelayText')}>and Running the 2nd annual Warsaw Donut Relay</div>
           </div>
         </div>
-        <div className={cn(styles.sectionSix, styles.sectionContainer, 'sectionSix')}>
+        <div ref={emeraldRef} className={cn(styles.sectionSix, styles.sectionContainer, 'sectionSix')}>
           <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
-            <div className={cn(styles.navigation, 'navigation')}>
-              <ul>
-                <li>About Me</li>
-                <li>somuchlove</li>
-                <li>Warsaw Sports</li>
-                <li>Business Club</li>
-                <li><strong>Daily Emerald</strong></li>
-                <li>ASUO</li>
-              </ul>
-            </div>
+            <SideBarNavi section={'emerald'} />
             <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
             <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
           </div>
           <div className={styles.separator}>&nbsp;</div>
           <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> is finding an opportunity with the Daily Emerald to learn as I work shooting different photo for various articles and sporting events.
+            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> is discovering an opportunity with the Daily Emerald, learning as I work, and shooting photos for various articles and sporting events.
               <p><a href="https://www.dailyemerald.com/users/profile/spencer%20so/" target="_blank">https://www.dailyemerald.com/users/<br/>profile/spencer%20so/</a></p>
             </div>
             <div className={cn(styles.photographyAssetWrapper, 'photographyAssetWrapper')}>
@@ -276,28 +262,19 @@ function HomePage() {
             </div>
           </div>
         </div>
-        <div className={cn(styles.sectionSeven, styles.sectionContainer, 'sectionSeven')}>
+        <div ref={asuoRef} className={cn(styles.sectionSeven, styles.sectionContainer, 'sectionSeven')}>
           <div className={cn(styles.sectionSideBar, 'sectionSideBar')}>
-            <div className={cn(styles.navigation, 'navigation')}>
-              <ul>
-                <li>About Me</li>
-                <li>somuchlove</li>
-                <li>Warsaw Sports</li>
-                <li>Business Club</li>
-                <li>Daily Emerald</li>
-                <li><strong>ASUO</strong></li>
-              </ul>
-            </div>
+            <SideBarNavi section={'asuo'} />
             <div className={cn(styles.sectionOneBgGray, styles.sectionSideBarBase)}>&nbsp;</div>
             <div className={cn(styles.sectionOneBgGreen, styles.sectionSideBarOverlay)}>&nbsp;</div>
           </div>
           <div className={styles.separator}>&nbsp;</div>
           <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means landing an amazing position with the Associated Students of the University of Oregon as the executive communications secretary of events specializing in the second annual spring concert. 
-              <p>The event will take place May 10th at the Cuthbert Amphitheater.</p>
-              <p>During this time I have had the chance to manage a $365,000 budget with a 4 artist lineup including a student band.</p>
-              <p>While working with the finances I have also learned many other skills including project management, creative direction, marketing, advertising, contracting, legal, and much more.</p>
-              <p><strong>Impossible Is Nothing</strong> shows me I can make a difference in any community.</p>
+            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means landing an amazing position with the Associated Students of the University of Oregon as the Executive Communications Secretary of Events specializing in the second annual spring concert.
+              <p>The event will take place on May 10th at the Cuthbert Amphitheater.</p>
+              <p>During this time, I have had the opportunity to manage a $365,000 budget with a 4 artist lineup, including a student band.</p>
+              <p>While working with the finances, I have also learned many other skills, including project management, creative direction, marketing, advertising, contracting, legal, and much more.</p>
+              <p><strong>Impossible Is Nothing</strong> shows me I can make a difference in all communities.</p>
             </div>
             <div className={cn(styles.asuoAssets, 'asuoAssets')}>
               {asuoAssets.map((asset, index) => {
