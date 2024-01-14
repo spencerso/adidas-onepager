@@ -304,7 +304,7 @@ function HomePage() {
                 return (
                   <div key={index} className={cn(styles.asuoAsset, 'asuoAsset')}>
                     <img
-                      src={`/images/asuo/${asset}.jpg`}
+                      src={`https://spencerso.github.io/adidas-onepager/images/asuo/${asset}.jpg`}
                       alt="ASUO Student Government Photos"
                     />
                   </div>
