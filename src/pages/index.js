@@ -302,7 +302,7 @@ function HomePage() {
             <div className={cn(styles.asuoAssets, 'asuoAssets')}>
               {asuoAssets.map((asset, index) => {
                 return (
-                  <div className={cn(styles.asuoAsset, 'asuoAsset')}>
+                  <div key={index} className={cn(styles.asuoAsset, 'asuoAsset')}>
                     <img
                       src={`/images/asuo/${asset}.jpg`}
                       alt="ASUO Student Government Photos"
