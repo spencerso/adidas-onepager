@@ -148,7 +148,7 @@ function HomePage() {
           </div>
           <div className={styles.separator}>&nbsp;</div>
           <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means I established my own clothing brand in high school. somuchlove was built as a way to stand up for social injustices, from my friend&rsquo;s transition in middle school to my experiences as an Asian American during the Stop Asian Hate movement.</div>
+            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means I established my own clothing brand in high school. somuchlove was built as a way to stand up for social injustices, from my friend&rsquo;s challenges during his transition in middle school to my experiences as an Asian American during the Stop Asian Hate movement.</div>
             <p className={cn(styles.iconographyTitle, 'iconographyTitle')}>Iconography</p>
             <div className={styles.iconography}>
               <span className={'iconographyLabelOne'}>2018</span>
@@ -198,7 +198,7 @@ function HomePage() {
           </div>
           <div className={styles.separator}>&nbsp;</div>
           <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means finding myself during my sophomore year by joining the Warsaw Sports Business Club.</div>
+            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means finding my passion during my sophomore year by joining the Warsaw Sports Business Club.</div>
             <img
               className={cn(styles.warsawAssetDefault, 'warsawAssetDefault')}
               src="https://spencerso.github.io/adidas-onepager/images/warsaw-activities.jpg"
@@ -245,7 +245,7 @@ function HomePage() {
           </div>
           <div className={styles.separator}>&nbsp;</div>
           <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> is discovering an opportunity with the Daily Emerald, learning as I work, and shooting photos for various articles and sporting events.
+            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means discovering an opportunity with the Daily Emerald, learning as I work, and shooting photos for various articles and sporting events.
               <p><a href="https://www.dailyemerald.com/users/profile/spencer%20so/" target="_blank">https://www.dailyemerald.com/users/<br/>profile/spencer%20so/</a></p>
             </div>
             <div className={cn(styles.photographyAssetWrapper, 'photographyAssetWrapper')}>
@@ -270,11 +270,11 @@ function HomePage() {
           </div>
           <div className={styles.separator}>&nbsp;</div>
           <div className={cn(styles.sectionContent, styles.sectionTwoContent)}>
-            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means landing an amazing position with the Associated Students of the University of Oregon as the Executive Communications Secretary of Events specializing in the second annual spring concert.
+            <div className={cn(styles.sectionContentText, 'sectionContentText')}><strong>Impossible Is Nothing</strong> means landing a position with the Associated Students of the University of Oregon as the Executive Communications Secretary of Events, specializing in the second annual spring concert.
               <p>The event will take place on May 10th at the Cuthbert Amphitheater.</p>
-              <p>During this time, I have had the opportunity to manage a $365,000 budget with a 4 artist lineup, including a student band.</p>
-              <p>While working with the finances, I have also learned many other skills, including project management, creative direction, marketing, advertising, contracting, legal, and much more.</p>
-              <p><strong>Impossible Is Nothing</strong> shows me I can make a difference in all communities.</p>
+              <p>During this time, I have had the opportunity to manage a $365,000 budget with a four-artist lineup, including a student band.</p>
+              <p>While working with the finances, I have also gained many other skills, including project management, creative direction, marketing, advertising, collaboration, communications, and more.</p>
+              <p><strong>Impossible Is Nothing</strong> means I can make a difference in all communities.</p>
             </div>
             <div className={cn(styles.asuoAssets, 'asuoAssets')}>
               {asuoAssets.map((asset, index) => {
